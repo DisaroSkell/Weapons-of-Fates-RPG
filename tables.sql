@@ -1,3 +1,5 @@
+create database WOF_RPG;
+
 --Ennemies table
 
 drop table ennemies;
@@ -44,7 +46,8 @@ create table Player (
     Mana integer,
     Mana_Max integer,
     constraint PK_Player primary key (Username),
-    constraint FK_Player foreign key (Chosen_Weapon) references Weapon(IDW)
+    constraint FK_Player1 foreign key (Chosen_Weapon) references Weapons(IDW),
+    constraint FK_Player2 foreign key (Chosen_Outfit) references Outfits(IDO)
 );
 
 --Abilities table
@@ -60,12 +63,12 @@ create table Abilities (
 
 --Outfits table (if enough time)
 
-/*
 drop table outfits;
 create table Outfits (
-
+    IDO integer not null,
+    NameO varchar2(20),
+    --Stock an image (how ?)
 );
-*/
 
 --Can_Use table (link between Enemies and Abilities tables)
 
@@ -76,11 +79,11 @@ create table Can_Use (
     constraint PK_Can_Use primary key (IDA,ID)
 );
 
---Abilities_Equiped table (link between Player and Abilities tables)
+--Weapon_Skills table (link between Weapons and Abilities tables)
 
-drop table abilities_equiped;
-create table Abilities_Equiped (
+drop table weapon_skills;
+create table Weapon_Skills (
     IDA integer,
-    Username varchar2(20),
-    constraint PK_Can_Use primary key (IDA,Username)
+    IDW integer,
+    constraint PK_Weapon_Skills primary key (IDA,IDW)
 );
