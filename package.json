@@ -1,0 +1,22 @@
+{
+  "name": "weapons-of-fates-rpg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DisaroSkell/Weapons-of-Fates-RPG.git"
+  },
+  "author": "DisaroSkell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DisaroSkell/Weapons-of-Fates-RPG/issues"
+  },
+  "homepage": "https://github.com/DisaroSkell/Weapons-of-Fates-RPG#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
