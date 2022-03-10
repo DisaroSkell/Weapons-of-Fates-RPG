@@ -1,8 +1,9 @@
+drop database if exists WOF_RPG;
 create database WOF_RPG;
 
 --Ennemies table
 
-drop table ennemies;
+drop table if exists ennemies;
 create table Ennemies(
     IDEN integer not null,
     NameE varchar2(20),
@@ -13,7 +14,7 @@ create table Ennemies(
 
 --Weapon types table
 
-drop table typeW;
+drop table if exists typeW;
 create table TypeW(
     IDT integer not null,
     NameTW varchar2(20),
@@ -22,7 +23,7 @@ create table TypeW(
 
 --Weapons table
 
-drop table weapons;
+drop table if exists weapons;
 create table Weapons(
     IDW integer not null,
     NameW varchar2(20),
@@ -36,7 +37,7 @@ create table Weapons(
 
 --Char table
 
-drop table player;
+drop table if exists player;
 create table Player (
     Username varchar2(20),
     Email varchar2(320), --max size of email adress
@@ -52,7 +53,7 @@ create table Player (
 
 --Abilities table
 
-drop table abilities;
+drop table if exists abilities;
 create table Abilities (
     IDA integer not null,
     NameA varchar2(20),
@@ -63,7 +64,7 @@ create table Abilities (
 
 --Outfits table (if enough time)
 
-drop table outfits;
+drop table if exists outfits;
 create table Outfits (
     IDO integer not null,
     NameO varchar2(20),
@@ -72,7 +73,7 @@ create table Outfits (
 
 --Can_Use table (link between Enemies and Abilities tables)
 
-drop table can_use;
+drop table if exists can_use;
 create table Can_Use (
     IDA integer,
     IDE integer,
@@ -81,7 +82,7 @@ create table Can_Use (
 
 --Weapon_Skills table (link between Weapons and Abilities tables)
 
-drop table weapon_skills;
+drop table if exists weapon_skills;
 create table Weapon_Skills (
     IDA integer,
     IDW integer,
