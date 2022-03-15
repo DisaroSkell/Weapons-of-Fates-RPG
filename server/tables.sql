@@ -7,6 +7,7 @@ drop table if exists abilities;
 drop table if exists player;
 drop table if exists outfits;
 drop table if exists weapons;
+drop table if exists fate;
 drop table if exists typeW;
 drop table if exists ennemies;
 
@@ -27,6 +28,14 @@ create table TypeW(
     primary key (IDT)
 );
 
+--Fate table
+
+create table Fate(
+    IDF integer,
+    NameF varchar(20),
+    primary key (IDF)
+);
+
 --Weapons table
 
 create table Weapons(
@@ -35,10 +44,11 @@ create table Weapons(
     DamageW integer,
     Xp integer,
     Xp_Max integer,
-    Level integer,
+    Fate_Level integer,
     Weapon_Type integer,
     primary key (IDW),
-    constraint FK_Weapons foreign key (Weapon_Type) references TypeW(IDT)
+    constraint FK_Weapons1 foreign key (Weapon_Type) references TypeW(IDT),
+    constraint FK_Weapons2 foreign key (Fate_Level) references Fate(IDF)
 );
 
 --Outfits table (if enough time)
