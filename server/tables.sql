@@ -15,7 +15,6 @@ drop table if exists ennemies;
 create table Ennemies(
     IDEN integer,
     NameE varchar(20),
-    HealthE integer,
     HealthE_Max integer,
     primary key (IDEN)
 );
@@ -47,7 +46,7 @@ create table Weapons(
 create table Outfits (
     IDO integer,
     NameO varchar(20),
-    --Stock an image (how ?)
+    Sprite varchar(50),
     primary key (IDO)
 );
 
@@ -57,9 +56,7 @@ create table Player (
     Username varchar(20),
     Email varchar(320), --max size of email adress
     Password varchar(256), --modify when crypting algorithm is chosen
-    HealthP integer,
     HealthP_Max integer,
-    Mana integer,
     Mana_Max integer,
     Chosen_Weapon integer,
     Chosen_Outfit integer,
