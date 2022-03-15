@@ -14,7 +14,7 @@ drop table if exists ennemies;
 --Ennemies table
 
 create table Ennemies(
-    IDEN integer,
+    IDEN serial unique,
     NameE varchar(20),
     HealthE_Max integer,
     primary key (IDEN)
@@ -23,7 +23,7 @@ create table Ennemies(
 --Weapon types table
 
 create table TypeW(
-    IDT integer,
+    IDT serial unique,
     NameTW varchar(20),
     primary key (IDT)
 );
@@ -31,7 +31,7 @@ create table TypeW(
 --Fate table
 
 create table Fate(
-    IDF integer,
+    IDF serial unique,
     NameF varchar(20),
     primary key (IDF)
 );
@@ -39,7 +39,7 @@ create table Fate(
 --Weapons table
 
 create table Weapons(
-    IDW integer,
+    IDW serial unique,
     NameW varchar(20),
     DamageW integer,
     Xp integer,
@@ -54,7 +54,7 @@ create table Weapons(
 --Outfits table (if enough time)
 
 create table Outfits (
-    IDO integer,
+    IDO serial unique,
     NameO varchar(20),
     Sprite varchar(50),
     primary key (IDO)
@@ -78,7 +78,7 @@ create table Player (
 --Abilities table
 
 create table Abilities (
-    IDA integer,
+    IDA serial unique,
     NameA varchar(20),
     DamageA integer,
     Mana_Cost integer,
