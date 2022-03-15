@@ -1,6 +1,3 @@
-drop database if exists WOF_RPG;
-create database WOF_RPG;
-
 drop table if exists weapon_skills;
 drop table if exists can_use;
 drop table if exists abilities;
