@@ -6,11 +6,11 @@ drop table if exists outfits;
 drop table if exists weapons;
 drop table if exists fate;
 drop table if exists typeW;
-drop table if exists ennemies;
+drop table if exists enemies;
 
---Ennemies table
+--Enemies table
 
-create table Ennemies(
+create table Enemies(
     IDEN serial unique,
     NameE varchar(20),
     HealthE_Max integer,

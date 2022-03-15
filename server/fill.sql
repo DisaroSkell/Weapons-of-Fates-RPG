@@ -1,4 +1,4 @@
-insert into Ennemies (NameE, HealthE_Max) values ('Goblin', 50);
+insert into Enemies (NameE, HealthE_Max) values ('Goblin', 50);
 
 insert into TypeW (NameTW) values ('Sword');
 
