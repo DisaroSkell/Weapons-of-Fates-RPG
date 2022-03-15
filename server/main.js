@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 6942
+const port = 5432
 
 var test = ['test1', 'test2', 'test3']
 
