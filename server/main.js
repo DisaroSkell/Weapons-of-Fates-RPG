@@ -1,13 +1,14 @@
 const express = require('express')
-const vue = require ('vue')
+const bodyParser = require('body-parser')
 const app = express()
-const port = 5432
+const port = 6942
 
-var test = ['test1', 'test2', 'test3']
+// parse requests of content-type - application/json
+app.use(bodyParser.json())
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', function (req,res) {
-    res.status(200).json(test)
-})
+require("./routes/Enemies")(app)
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`)
