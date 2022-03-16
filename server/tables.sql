@@ -1,16 +1,6 @@
-drop table if exists weapon_skills;
-drop table if exists can_use;
-drop table if exists abilities;
-drop table if exists player;
-drop table if exists outfits;
-drop table if exists weapons;
-drop table if exists fate;
-drop table if exists typeW;
-drop table if exists enemies;
-
 --Enemies table
 
-create table Enemies(
+create table if not exists Enemies(
     IDEN serial unique,
     NameE varchar(20),
     HealthE_Max integer,
@@ -19,7 +9,7 @@ create table Enemies(
 
 --Weapon types table
 
-create table TypeW(
+create table if not exists TypeW(
     IDT serial unique,
     NameTW varchar(20),
     primary key (IDT)
@@ -27,7 +17,7 @@ create table TypeW(
 
 --Fate table
 
-create table Fate(
+create table if not exists Fate(
     IDF serial unique,
     NameF varchar(20),
     primary key (IDF)
@@ -35,7 +25,7 @@ create table Fate(
 
 --Weapons table
 
-create table Weapons(
+create table if not exists Weapons(
     IDW serial unique,
     NameW varchar(20),
     DamageW integer,
@@ -50,7 +40,7 @@ create table Weapons(
 
 --Outfits table (if enough time)
 
-create table Outfits (
+create table if not exists Outfits (
     IDO serial unique,
     NameO varchar(20),
     Sprite varchar(50),
@@ -59,7 +49,7 @@ create table Outfits (
 
 --Player table
 
-create table Player (
+create table if not exists Player (
     Username varchar(20),
     Email varchar(320), --max size of email adress
     Password varchar(256), --modify when crypting algorithm is chosen
@@ -74,7 +64,7 @@ create table Player (
 
 --Abilities table
 
-create table Abilities (
+create table if not exists Abilities (
     IDA serial unique,
     NameA varchar(20),
     DamageA integer,
@@ -84,7 +74,7 @@ create table Abilities (
 
 --Can_Use table (link between Enemies and Abilities tables)
 
-create table Can_Use (
+create table if not exists Can_Use (
     IDA integer,
     IDE integer,
     primary key (IDA,IDE)
@@ -92,7 +82,7 @@ create table Can_Use (
 
 --Weapon_Skills table (link between Weapons and Abilities tables)
 
-create table Weapon_Skills (
+create table if not exists Weapon_Skills (
     IDA integer,
     IDW integer,
     primary key (IDA,IDW)

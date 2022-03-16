@@ -28,7 +28,7 @@ const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
     }
 });
 
-const sql_fill = fs.readFile(__dirname + "/fill.sql", function (err, data) {
+/*const sql_fill = fs.readFile(__dirname + "/fill.sql", function (err, data) {
     if (err) {
         return console.error(err.message);
     }
@@ -40,6 +40,6 @@ const sql_fill = fs.readFile(__dirname + "/fill.sql", function (err, data) {
             console.log("Tables successfully filled");
         });
     }
-});
+});*/
 
 module.exports = client
