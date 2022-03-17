@@ -14,7 +14,7 @@ app.component('enemies-list', {
                     reponseType: 'stream'
                 })
                 request.then((res) => {
-                    console.log(res)
+                    this.enemiesTab = res.data
                 })
             } catch (err) {
                 console.error(err)
