@@ -1,17 +1,23 @@
-insert into Enemies (NameE, HealthE_Max) values ('Goblin', 50);
+insert into Rarity (NameR) values ('Common');
 
 insert into TypeW (NameTW) values ('Sword');
 
-insert into Fate (NameF) values ('Dust');
+insert into Enemies (NameE, Health_MaxE, Xp_Reward, Gold_Reward, Power, Weekness) values ('Goblin', 50, 10, 5, 1, 1);
 
-insert into Weapons (NameW, DamageW, Xp, Xp_Max, Fate_Level, Weapon_Type) values ('Rusty Sword', 10, 0, 100, 1, 1);
+insert into Fate (NameF, DescF) values ('Dust', `This is your very first weapon. I don't think you will last long if you hang on to it for too long.`);
 
-insert into Outfits (NameO, Sprite) values ('Basic', './img/basic_outfit');
+insert into Weapons (NameW, DamageW, Xp_Max, Weapon_Type, Rarity) values ('Rusty Sword', 10, 100, 1, 1);
 
-insert into Player values ('Hector', 'hect.tp@gmail.com', '1234', 70, 50, 1, 1);
+insert into Outfits (NameO, Sprite) values ('Basic', './img/basic_outfit', 0);
+
+insert into Player (Username, Email, Password, Health_MaxP, Current_Health, Mana_Max, Current_Mana, Chosen_Outfit) values ('Hector', 'hect.tp@gmail.com', '1234', 70, 70, 50, 50, 1);
 
 insert into Abilities (NameA, DamageA, Mana_Cost) values ('Fire', 30, 50);
 
-insert into Can_Use values (1, 1);
+insert into Can_Use values (1, 1, 1);
 
-insert into Weapon_Skills values (1, 1);
+insert into Weapons_Inventory values (1, 1, 0, 0, 1);
+
+insert into Outfit_Inventory values (1, 1);
+
+insert into Abilities_Inventory values (1, 1);

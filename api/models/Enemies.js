@@ -3,7 +3,7 @@ const client = require("../db")
 function createEnemy(name, health_max) {
     return new Promise((resolve, reject) => {
         const values = [name, health_max]
-        const sql = `insert into enemies (namee,healthe_max) values ($1, $2);`
+        const sql = `insert into enemies (namee,health_maxe) values ($1, $2);`
         client.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -17,7 +17,7 @@ function createEnemy(name, health_max) {
 function readEnemy(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `select * from enemies where iden = $1;`
+        const sql = `select * from enemies where ide = $1;`
         client.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -45,7 +45,7 @@ function readAllEnemies() {
 function updateEnemy(id, name, health_max) {
     return new Promise((resolve, reject) => {
         const values = [id, name, health_max]
-        const sql = `update table set namee = $2, healthe_max = $3 where iden = $1;`
+        const sql = `update table set namee = $2, health_maxe = $3 where ide = $1;`
         client.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -59,7 +59,7 @@ function updateEnemy(id, name, health_max) {
 function deleteEnemy(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `delete from enemies where iden = $1;`
+        const sql = `delete from enemies where ide = $1;`
         client.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
