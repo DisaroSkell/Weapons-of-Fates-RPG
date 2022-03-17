@@ -5,17 +5,37 @@
         <title>Weapons of Fates</title>
         <!-- Import Styles -->
         <link rel="stylesheet" href="assets/styles.css">
+        <!-- Import Vuejs -->
+        <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+        <!-- Import Axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link rel="icon" href="assets/icon.png">
     </head>
     <body>
-        <div>
-            <div class="header">
-                Weapons of Fates RPG
+        <div id="app">
+            <div>
+                <div class="header">
+                    Weapons of Fates RPG
+                </div>
+            </div>
+            <div>
+                <enemies-list></enemies-list>
+            </div>
+            <div class="footer">
+                <p>Developed by <b>Louis VAN DER PUTTE</b>, 2022</p>
             </div>
         </div>
-        <div class="footer">
-            <p>Developed by <b>Louis VAN DER PUTTE</b>, 2022</p>
-        </div>
+
+        <!-- Import App -->
+        <script src="./main.js"></script>
+
+        <!-- Import Components -->
+        <script src="./components/EnemiesList.js"></script>
+
+        <!-- Mount App -->
+        <script>
+            const mountedApp = app.mount('#app')
+        </script>
     </body>
 </html>
 
