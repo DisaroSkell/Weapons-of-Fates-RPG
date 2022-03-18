@@ -18,6 +18,6 @@ insert into Can_Use values (1, 1, 1);
 
 insert into Weapons_Inventory values (1, 1, 0, 0, 1);
 
-insert into Outfit_Inventory values (1, 1);
+insert into Outfits_Inventory values (1, 1);
 
 insert into Abilities_Inventory values (1, 1);

@@ -117,9 +117,9 @@ create table if not exists Weapons_Inventory (
     constraint FK_Weapons_Inventory foreign key (Fate_Level) references Fate(IDF)
 );
 
---Outfit_Inventory table (link between Player and Outfit tables)
+--Outfits_Inventory table (link between Player and Outfit tables)
 
-create table if not exists Outfit_Inventory (
+create table if not exists Outfits_Inventory (
     IDO integer,
     IDP integer,
     primary key (IDO,IDP)
