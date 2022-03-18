@@ -1,9 +1,11 @@
-const model = require('../models/Rarity')
+const model = require('../models/CanUse')
 
-function postRarity(req, res) {
-    const name = req.body.name
+function postAbilityToEnemy(req, res) {
+    const ide = req.body.ide
+    const ida = req.body.ida
+    const priority = req.body.priority
 
-    const promise = model.createRarity(name)
+    const promise = model.allowAbilityToEnemy(ide,ida,priority)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +16,10 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getEnemyAbilityInventory(req, res) {
+    const ide = req.params.ide
+
+    const promise = model.readEnemyAbilityInventory(ide)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +30,11 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
-    const id = req.params.id
+function getEnemyAbility(req, res) {
+    const ide = req.params.ide
+    const ida = req.params.ida
     
-    const promise = model.readRarity(id)
+    const promise = model.readEnemyAbility(ide,ida)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,11 +45,12 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
-    const id = req.params.id
-    const name = req.body.name
+function putEnemyAbility(req, res) {
+    const ide = req.body.ide
+    const ida = req.body.ida
+    const priority = req.body.priority
 
-    const promise = model.updateRarity(id,name)
+    const promise = model.updateEnemyAbility(ide, ida, priority)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -55,10 +61,11 @@ function putRarity(req, res) {
     })
 }
 
-function deleteRarity(req, res) {
-    const id = req.params.id
+function deleteAbilityFromUsage(req, res) {
+    const ide = req.params.ide
+    const ida = req.params.ida
 
-    const promise = model.removeRarity(id)
+    const promise = model.revokeAbilityFromUsage(ide,ida)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +77,9 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postAbilityToEnemy,
+    getEnemyAbilityInventory,
+    getEnemyAbility,
+    putEnemyAbility,
+    deleteAbilityFromUsage
 }

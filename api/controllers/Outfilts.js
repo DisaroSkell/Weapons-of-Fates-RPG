@@ -1,9 +1,11 @@
-const model = require('../models/Rarity')
+const model = require('../models/Outfits')
 
-function postRarity(req, res) {
+function postOutfit(req, res) {
     const name = req.body.name
+    const sprite = req.body.sprite
+    const price = req.body.price
 
-    const promise = model.createRarity(name)
+    const promise = model.createOutfit(name,sprite,price)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +16,8 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getAllOutfits(req, res) {
+    const promise = model.readAllOutfits()
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +28,10 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
+function getOutfit(req, res) {
     const id = req.params.id
     
-    const promise = model.readRarity(id)
+    const promise = model.readOutfit(id)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,11 +42,13 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
+function putOutfit(req, res) {
     const id = req.params.id
     const name = req.body.name
+    const sprite = req.body.sprite
+    const price = req.body.price
 
-    const promise = model.updateRarity(id,name)
+    const promise = model.updateOutfit(id,name,sprite,price)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -55,10 +59,10 @@ function putRarity(req, res) {
     })
 }
 
-function deleteRarity(req, res) {
+function deleteOutfit(req, res) {
     const id = req.params.id
 
-    const promise = model.removeRarity(id)
+    const promise = model.removeOutfit(id)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +74,9 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postOutfit,
+    getAllOutfits,
+    getOutfit,
+    putOutfit,
+    deleteOutfit
 }

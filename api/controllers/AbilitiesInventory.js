@@ -1,9 +1,10 @@
-const model = require('../models/Rarity')
+const model = require('../models/AbilitiesInventory')
 
-function postRarity(req, res) {
-    const name = req.body.name
+function postAbilityToInventory(req, res) {
+    const username = req.body.username
+    const ida = req.body.ida
 
-    const promise = model.createRarity(name)
+    const promise = model.addAbilityToInventory(username,ida)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +15,10 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getPlayerAbilityInventory(req, res) {
+    const username = req.params.username
+
+    const promise = model.readPlayerAbilityInventory(username)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +29,11 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
-    const id = req.params.id
+function getPlayerAbility(req, res) {
+    const username = req.params.username
+    const ida = req.params.ida
     
-    const promise = model.readRarity(id)
+    const promise = model.readPlayerAbility(username,ida)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,25 +44,11 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
-    const id = req.params.id
-    const name = req.body.name
+function deleteAbilityFromInventory(req, res) {
+    const username = req.params.username
+    const ida = req.params.ida
 
-    const promise = model.updateRarity(id,name)
-    promise.then((values) => {
-        res.status(204).send(values)
-    }).catch((err) => {
-        console.error(err.message)
-        res.status(500).send({
-            message: `Cannot update resource`
-        })
-    })
-}
-
-function deleteRarity(req, res) {
-    const id = req.params.id
-
-    const promise = model.removeRarity(id)
+    const promise = model.removeAbilityFromInventory(username,ida)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +60,8 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postAbilityToInventory,
+    getPlayerAbilityInventory,
+    getPlayerAbility,
+    deleteAbilityFromInventory
 }

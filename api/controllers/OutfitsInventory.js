@@ -1,9 +1,10 @@
-const model = require('../models/Rarity')
+const model = require('../models/OutfitsInventory')
 
-function postRarity(req, res) {
-    const name = req.body.name
+function postOutfitToInventory(req, res) {
+    const username = req.body.username
+    const ido = req.body.ido
 
-    const promise = model.createRarity(name)
+    const promise = model.addOutfitToInventory(username,ido)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +15,10 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getPlayerOutfitInventory(req, res) {
+    const username = req.params.username
+
+    const promise = model.readPlayerOutfitInventory(username)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +29,11 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
-    const id = req.params.id
+function getPlayerOutfit(req, res) {
+    const username = req.params.username
+    const ido = req.params.ido
     
-    const promise = model.readRarity(id)
+    const promise = model.readPlayerOutfit(username,ido)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,25 +44,11 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
-    const id = req.params.id
-    const name = req.body.name
+function deleteOutfitFromInventory(req, res) {
+    const username = req.params.username
+    const ido = req.params.ido
 
-    const promise = model.updateRarity(id,name)
-    promise.then((values) => {
-        res.status(204).send(values)
-    }).catch((err) => {
-        console.error(err.message)
-        res.status(500).send({
-            message: `Cannot update resource`
-        })
-    })
-}
-
-function deleteRarity(req, res) {
-    const id = req.params.id
-
-    const promise = model.removeRarity(id)
+    const promise = model.removeOutfitFromInventory(username,ido)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +60,8 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postOutfitToInventory,
+    getPlayerOutfitInventory,
+    getPlayerOutfit,
+    deleteOutfitFromInventory
 }

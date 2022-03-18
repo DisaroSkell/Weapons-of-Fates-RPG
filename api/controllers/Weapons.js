@@ -1,9 +1,13 @@
-const model = require('../models/Rarity')
+const model = require('../models/Weapons')
 
-function postRarity(req, res) {
+function postWeapon(req, res) {
     const name = req.body.name
+    const damage = req.body.damage
+    const xp = req.body.xp
+    const type = req.body.type
+    const rarity = req.body.rarity
 
-    const promise = model.createRarity(name)
+    const promise = model.createWeapon(name, damage, xp, type, rarity)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +18,8 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getAllWeapons(req, res) {
+    const promise = model.readAllWeapons()
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +30,10 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
+function getWeapon(req, res) {
     const id = req.params.id
     
-    const promise = model.readRarity(id)
+    const promise = model.readWeapon(id)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,11 +44,15 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
+function putWeapon(req, res) {
     const id = req.params.id
     const name = req.body.name
+    const damage = req.body.damage
+    const xp = req.body.xp
+    const type = req.body.type
+    const rarity = req.body.rarity
 
-    const promise = model.updateRarity(id,name)
+    const promise = model.updateWeapon(id,name, damage, xp, type, rarity)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -55,10 +63,10 @@ function putRarity(req, res) {
     })
 }
 
-function deleteRarity(req, res) {
+function deleteWeapon(req, res) {
     const id = req.params.id
 
-    const promise = model.removeRarity(id)
+    const promise = model.removeWeapon(id)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +78,9 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postWeapon,
+    getAllWeapons,
+    getWeapon,
+    putWeapon,
+    deleteWeapon
 }

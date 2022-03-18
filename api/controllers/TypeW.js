@@ -1,9 +1,9 @@
-const model = require('../models/Rarity')
+const model = require('../models/TypeW')
 
-function postRarity(req, res) {
+function postTypeW(req, res) {
     const name = req.body.name
 
-    const promise = model.createRarity(name)
+    const promise = model.createTypeW(name)
     promise.then((values) => {
         res.status(201).send(values)
     }).catch((err) => {
@@ -14,8 +14,8 @@ function postRarity(req, res) {
     })
 }
 
-function getAllRarities(req, res) {
-    const promise = model.readAllRarities()
+function getAllTypesW(req, res) {
+    const promise = model.readAllTypesW()
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -26,10 +26,10 @@ function getAllRarities(req, res) {
     })
 }
 
-function getRarity(req, res) {
+function getTypeW(req, res) {
     const id = req.params.id
     
-    const promise = model.readRarity(id)
+    const promise = model.readTypeW(id)
     promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
@@ -40,11 +40,11 @@ function getRarity(req, res) {
     })
 }
 
-function putRarity(req, res) {
+function putTypeW(req, res) {
     const id = req.params.id
     const name = req.body.name
 
-    const promise = model.updateRarity(id,name)
+    const promise = model.updateTypeW(id,name)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -55,10 +55,10 @@ function putRarity(req, res) {
     })
 }
 
-function deleteRarity(req, res) {
+function deleteTypeW(req, res) {
     const id = req.params.id
 
-    const promise = model.removeRarity(id)
+    const promise = model.removeTypeW(id)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
@@ -70,9 +70,9 @@ function deleteRarity(req, res) {
 }
 
 module.exports = {
-    postRarity,
-    getAllRarities,
-    getRarity,
-    putRarity,
-    deleteRarity
+    postTypeW,
+    getAllTypesW,
+    getTypeW,
+    putTypeW,
+    deleteTypeW
 }
