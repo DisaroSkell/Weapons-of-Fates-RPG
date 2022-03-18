@@ -1,9 +1,9 @@
-const db = require('../db')
+const db = require("../db")
 
-function createRarity(name) {
+function createOutfit(name, sprite, price) {
     return new Promise((resolve, reject) => {
-        const values = [name]
-        const sql = `insert into rarity (namer) values ($1);`
+        const values = [name, sprite, price]
+        const sql = `insert into outfits (nameo, sprite, price) values ($1, $2, $3);`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -14,11 +14,11 @@ function createRarity(name) {
     })
 }
 
-function readRarity(id) {
+function readOutfit(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `select * from rarity where idr = $1;`
-        db.query(sql, values, (err, result) => {
+        const sql = `select * from outfits where ido = $1;`
+        db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
             }
@@ -28,24 +28,10 @@ function readRarity(id) {
     })
 }
 
-function readAllRarities() {
+function readAllOutfits() {
     return new Promise((resolve, reject) => {
         const values = []
-        const sql = `select * from rarity;`
-        db.query(sql, values, (err, result) => {
-            if (err) {
-                return console.error(err.message)
-            }
-
-            resolve(result)
-        })
-    })
-}
-
-function updateRarity(id, name) {
-    return new Promise((resolve, reject) => {
-        const values = [id, name]
-        const sql = `update rarity set namer = $2 where idr = $1;`
+        const sql = `select * from outfits;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -56,10 +42,24 @@ function updateRarity(id, name) {
     })
 }
 
-function removeRarity(id) {
+function updateOutfit(id, name, sprite, price) {
+    return new Promise((resolve, reject) => {
+        const values = [id, name, sprite, price]
+        const sql = `update outfits set nameo = $2, sprite = $3, price = $4 where ido = $1;`
+        db.query(sql, values, (err,result) => {
+            if (err) {
+                return console.error(err.message)
+            }
+
+            resolve(result)
+        })
+    })
+}
+
+function removeOutfit(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `delete from rarity where idr = $1;`
+        const sql = `delete from outfits where ido = $1;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -71,9 +71,9 @@ function removeRarity(id) {
 }
 
 module.exports = {
-    createRarity,
-    readRarity,
-    readAllRarities,
-    updateRarity,
-    removeRarity
+    createOutfit,
+    readOutfit,
+    readAllOutfits,
+    updateOutfit,
+    removeOutfit
 }

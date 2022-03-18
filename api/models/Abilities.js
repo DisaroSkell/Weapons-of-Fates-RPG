@@ -1,9 +1,9 @@
-const db = require('../db')
+const db = require("../db")
 
-function createRarity(name) {
+function createAbility(name, damage, mana) {
     return new Promise((resolve, reject) => {
-        const values = [name]
-        const sql = `insert into rarity (namer) values ($1);`
+        const values = [name, damage, mana]
+        const sql = `insert into abilities (namea, damagea, mana_cost) values ($1, $2, $3);`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -14,11 +14,11 @@ function createRarity(name) {
     })
 }
 
-function readRarity(id) {
+function readAbility(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `select * from rarity where idr = $1;`
-        db.query(sql, values, (err, result) => {
+        const sql = `select * from abilities where ida = $1;`
+        db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
             }
@@ -28,24 +28,10 @@ function readRarity(id) {
     })
 }
 
-function readAllRarities() {
+function readAllAbilities() {
     return new Promise((resolve, reject) => {
         const values = []
-        const sql = `select * from rarity;`
-        db.query(sql, values, (err, result) => {
-            if (err) {
-                return console.error(err.message)
-            }
-
-            resolve(result)
-        })
-    })
-}
-
-function updateRarity(id, name) {
-    return new Promise((resolve, reject) => {
-        const values = [id, name]
-        const sql = `update rarity set namer = $2 where idr = $1;`
+        const sql = `select * from abilities;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -56,10 +42,24 @@ function updateRarity(id, name) {
     })
 }
 
-function removeRarity(id) {
+function updateAbility(id, name, damage, mana) {
+    return new Promise((resolve, reject) => {
+        const values = [id, name, damage, mana]
+        const sql = `update abilities set namea = $2, damagea = $3, mana_cost = $4 where ida = $1;`
+        db.query(sql, values, (err,result) => {
+            if (err) {
+                return console.error(err.message)
+            }
+
+            resolve(result)
+        })
+    })
+}
+
+function removeAbility(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `delete from rarity where idr = $1;`
+        const sql = `delete from abilities where ida = $1;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -71,9 +71,9 @@ function removeRarity(id) {
 }
 
 module.exports = {
-    createRarity,
-    readRarity,
-    readAllRarities,
-    updateRarity,
-    removeRarity
+    createAbility,
+    readAbility,
+    readAllAbilities,
+    updateAbility,
+    removeAbility
 }

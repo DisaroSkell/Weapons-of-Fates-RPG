@@ -1,9 +1,9 @@
-const db = require('../db')
+const db = require("../db")
 
-function createRarity(name) {
+function createTypeW(name) {
     return new Promise((resolve, reject) => {
         const values = [name]
-        const sql = `insert into rarity (namer) values ($1);`
+        const sql = `insert into typew (nametw) values ($1);`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -14,11 +14,11 @@ function createRarity(name) {
     })
 }
 
-function readRarity(id) {
+function readTypeW(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `select * from rarity where idr = $1;`
-        db.query(sql, values, (err, result) => {
+        const sql = `select * from typew where idt = $1;`
+        db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
             }
@@ -28,24 +28,10 @@ function readRarity(id) {
     })
 }
 
-function readAllRarities() {
+function readAllTypesW() {
     return new Promise((resolve, reject) => {
         const values = []
-        const sql = `select * from rarity;`
-        db.query(sql, values, (err, result) => {
-            if (err) {
-                return console.error(err.message)
-            }
-
-            resolve(result)
-        })
-    })
-}
-
-function updateRarity(id, name) {
-    return new Promise((resolve, reject) => {
-        const values = [id, name]
-        const sql = `update rarity set namer = $2 where idr = $1;`
+        const sql = `select * from typew;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -56,10 +42,24 @@ function updateRarity(id, name) {
     })
 }
 
-function removeRarity(id) {
+function updateTypeW(id, name) {
+    return new Promise((resolve, reject) => {
+        const values = [id, name]
+        const sql = `update typew set nametw = $2 where idt = $1;`
+        db.query(sql, values, (err,result) => {
+            if (err) {
+                return console.error(err.message)
+            }
+
+            resolve(result)
+        })
+    })
+}
+
+function removeTypeW(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `delete from rarity where idr = $1;`
+        const sql = `delete from typew where idt = $1;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -71,9 +71,9 @@ function removeRarity(id) {
 }
 
 module.exports = {
-    createRarity,
-    readRarity,
-    readAllRarities,
-    updateRarity,
-    removeRarity
+    createTypeW,
+    readTypeW,
+    readAllTypesW,
+    updateTypeW,
+    removeTypeW
 }

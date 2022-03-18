@@ -1,9 +1,9 @@
-const db = require('../db')
+const db = require("../db")
 
-function createRarity(name) {
+function createFate(name, desc) {
     return new Promise((resolve, reject) => {
-        const values = [name]
-        const sql = `insert into rarity (namer) values ($1);`
+        const values = [name, desc]
+        const sql = `insert into fate (namef, descf) values ($1, $2);`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -14,11 +14,11 @@ function createRarity(name) {
     })
 }
 
-function readRarity(id) {
+function readFate(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `select * from rarity where idr = $1;`
-        db.query(sql, values, (err, result) => {
+        const sql = `select * from fate where idf = $1;`
+        db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
             }
@@ -28,24 +28,10 @@ function readRarity(id) {
     })
 }
 
-function readAllRarities() {
+function readAllFates() {
     return new Promise((resolve, reject) => {
         const values = []
-        const sql = `select * from rarity;`
-        db.query(sql, values, (err, result) => {
-            if (err) {
-                return console.error(err.message)
-            }
-
-            resolve(result)
-        })
-    })
-}
-
-function updateRarity(id, name) {
-    return new Promise((resolve, reject) => {
-        const values = [id, name]
-        const sql = `update rarity set namer = $2 where idr = $1;`
+        const sql = `select * from fate;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -56,10 +42,24 @@ function updateRarity(id, name) {
     })
 }
 
-function removeRarity(id) {
+function updateFate(id, name, desc) {
+    return new Promise((resolve, reject) => {
+        const values = [id, name, desc]
+        const sql = `update fate set namef = $2, descf = $3 where idf = $1;`
+        db.query(sql, values, (err,result) => {
+            if (err) {
+                return console.error(err.message)
+            }
+
+            resolve(result)
+        })
+    })
+}
+
+function removeFate(id) {
     return new Promise((resolve, reject) => {
         const values = [id]
-        const sql = `delete from rarity where idr = $1;`
+        const sql = `delete from fate where idf = $1;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
@@ -71,9 +71,9 @@ function removeRarity(id) {
 }
 
 module.exports = {
-    createRarity,
-    readRarity,
-    readAllRarities,
-    updateRarity,
-    removeRarity
+    createFate,
+    readFate,
+    readAllFates,
+    updateFate,
+    removeFate
 }
