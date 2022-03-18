@@ -56,7 +56,7 @@ function updateEnemyAbility(ide, idw, priority) {
     })
 }
 
-function removeAbilityFromInventory(ide, idw) {
+function revokeAbilityFromUsage(ide, idw) {
     return new Promise((resolve, reject) => {
         const values = [ide, idw]
         const sql = `remove from can_use where ide = $1 and idw = $2;`
@@ -75,5 +75,5 @@ module.exports = {
     readEnemyAbilityInventory,
     readEnemyAbility,
     updateEnemyAbility,
-    removeAbilityFromInventory
+    revokeAbilityFromUsage
 }
