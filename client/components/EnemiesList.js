@@ -17,7 +17,7 @@ app.component('enemies-list', {
                     this.enemiesTab = res.data
                 })
             } catch (err) {
-                console.error(err)
+                console.error(err.message)
             }
         }
     },
