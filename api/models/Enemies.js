@@ -45,7 +45,7 @@ function readAllEnemies() {
 function updateEnemy(id, name, health_max, xp, gold, strength, resistance, weekness) {
     return new Promise((resolve, reject) => {
         const values = [id, name, health_max, xp, gold, strength, resistance, weekness]
-        const sql = `update table set namee = $2, health_maxe = $3, xp_reward = $4, gold_reward = $5, strength = $6, resistance = $7, weekness = $8 where ide = $1;`
+        const sql = `update enemies set namee = $2, health_maxe = $3, xp_reward = $4, gold_reward = $5, strength = $6, resistance = $7, weekness = $8 where ide = $1;`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
