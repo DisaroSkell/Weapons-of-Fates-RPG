@@ -46,8 +46,8 @@ function getEnemyAbility(req, res) {
 }
 
 function putEnemyAbility(req, res) {
-    const ide = req.body.ide
-    const ida = req.body.ida
+    const ide = req.params.ide
+    const ida = req.params.ida
     const priority = req.body.priority
 
     const promise = model.updateEnemyAbility(ide, ida, priority)

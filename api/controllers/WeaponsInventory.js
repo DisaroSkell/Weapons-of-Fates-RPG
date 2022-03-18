@@ -45,8 +45,8 @@ function getPlayerWeapon(req, res) {
 }
 
 function putPlayerWeapon(req, res) {
-    const username = req.body.username
-    const idw = req.body.idw
+    const username = req.params.username
+    const idw = req.params.idw
     const xp = req.body.xp
     const foots_won = req.body.foots_won
     const fate_level = req.body.fate_level
