@@ -1,7 +1,5 @@
 const db = require('../db')
 
-db = require('../db')
-
 function addAbilityToInventory(username, ida) {
     return new Promise((resolve, reject) => {
         const values = [username,ida]

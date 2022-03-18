@@ -1,7 +1,5 @@
 const db = require('../db')
 
-db = require('../db')
-
 function allowAbilityToEnemy(ide, idw, priority) {
     return new Promise((resolve, reject) => {
         const values = [ide, idw, priority]

@@ -1,7 +1,5 @@
 const db = require('../db')
 
-db = require('../db')
-
 function addWeaponToInventory(username, idw) {
     return new Promise((resolve, reject) => {
         const values = [username,idw]

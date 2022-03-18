@@ -1,7 +1,5 @@
 const db = require('../db')
 
-db = require('../db')
-
 function addOutfitToInventory(username, ido) {
     return new Promise((resolve, reject) => {
         const values = [username,ido]
