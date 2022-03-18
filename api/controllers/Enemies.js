@@ -33,7 +33,7 @@ function getAllEnemies(req, res) {
 }
 
 function getEnemy(req, res) {
-    const id = req.body.id
+    const id = req.params.id
 
     const promise = model.readEnemy(id)
     promise.then((values) => {
@@ -47,7 +47,7 @@ function getEnemy(req, res) {
 }
 
 function putEnemy(req, res) {
-    const id = req.body.id
+    const id = req.params.id
     const name = req.body.name
     const health = req.body.health
     const xp = req.body.xp
@@ -68,7 +68,7 @@ function putEnemy(req, res) {
 }
 
 function deleteEnemy(req, res) {
-    const id = req.body.id
+    const id = req.params.id
 
     const promise = model.removeEnemy(id)
     promise.then((values) => {
