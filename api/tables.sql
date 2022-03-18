@@ -26,7 +26,7 @@ create table if not exists Enemies (
     Strength integer,
     Weekness integer,
     constraint FK_Enemies1 foreign key (Power) references Rarity(IDR),
-    constraint FK_Enemies1 foreign key (Strength) references TypeW(IDT),
+    constraint FK_Enemies2 foreign key (Strength) references TypeW(IDT),
     constraint FK_Enemies3 foreign key (Weekness) references TypeW(IDT),
     primary key (IDE)
 );
@@ -112,7 +112,7 @@ create table if not exists Weapons_Inventory (
     IDP integer,
     Xp integer,
     FOOTs_Won integer,
-    Fate_Level,
+    Fate_Level integer,
     primary key (IDW,IDP),
     constraint FK_Weapons_Inventory foreign key (Fate_Level) references Fate(IDF)
 );
@@ -131,4 +131,6 @@ create table if not exists Abilities_Inventory (
     IDA integer,
     IDP integer,
     primary key (IDA,IDP)
-)
+);
+
+--FOOT table (not implemented yet)

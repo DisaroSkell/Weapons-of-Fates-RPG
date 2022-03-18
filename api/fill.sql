@@ -4,11 +4,11 @@ insert into TypeW (NameTW) values ('Sword');
 
 insert into Enemies (NameE, Health_MaxE, Xp_Reward, Gold_Reward, Power, Weekness) values ('Goblin', 50, 10, 5, 1, 1);
 
-insert into Fate (NameF, DescF) values ('Dust', `This is your very first weapon. I don't think you will last long if you hang on to it for too long.`);
+insert into Fate (NameF, DescF) values ('Dust', 'This is your very first weapon. I don''t think you will last long if you hang on to it for too long.');
 
 insert into Weapons (NameW, DamageW, Xp_Max, Weapon_Type, Rarity) values ('Rusty Sword', 10, 100, 1, 1);
 
-insert into Outfits (NameO, Sprite) values ('Basic', './img/basic_outfit', 0);
+insert into Outfits (NameO, Sprite, Price) values ('Basic', './img/basic_outfit', 0);
 
 insert into Abilities (NameA, DamageA, Mana_Cost) values ('Fire', 30, 50);
 
