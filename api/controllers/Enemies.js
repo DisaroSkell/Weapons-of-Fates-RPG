@@ -36,7 +36,7 @@ function getEnemy(req, res) {
     const id = req.body.id
 
     const promise = model.readEnemy(id)
-    promise.theen((values) => {
+    promise.then((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
         console.error(err.message)
