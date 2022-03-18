@@ -1,9 +1,9 @@
 const db = require("../db")
 
-function createPlayer(username, email, password, health_max, mana_max) {
+function createPlayer(username, email, password) {
     return new Promise((resolve, reject) => {
-        const values = [username, email, password, health_max, mana_max]
-        const sql = `insert into player (username, email, password, health_maxp, mana_max) values ($1, $2, $3, $4, $5);`
+        const values = [username, email, password]
+        const sql = `insert into player (username, email, password, health_maxp, mana_max) values ($1, $2, $3, 100, 100);`
         db.query(sql, values, (err,result) => {
             if (err) {
                 return console.error(err.message)
