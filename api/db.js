@@ -1,7 +1,7 @@
 const fs = require('fs')
-const { DataBase } = require('pg')
+const { Client } = require('pg')
 
-const db = new DataBase({
+const db = new Client({
   user: 'postgres',
   host: 'localhost',
   database: 'wof_rpg',
