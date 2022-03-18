@@ -1,7 +1,7 @@
 const fs = require('fs')
-const { Client } = require('pg')
+const { DataBase } = require('pg')
 
-const client = new Client({
+const db = new DataBase({
   user: 'postgres',
   host: 'localhost',
   database: 'wof_rpg',
@@ -9,9 +9,9 @@ const client = new Client({
   port: 5432,
 })
 
-client.connect(function(err) {
+db.connect(function(err) {
   if (err) throw err;
-  console.log("Connected to database " + client.database + "!");
+  console.log("Connected to database " + db.database + "!");
 })
 
 const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
@@ -19,7 +19,7 @@ const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
         return console.error(err.message);
     }
     else {
-        client.query(data.toString(), [], (err, result) => {
+        db.query(data.toString(), [], (err, result) => {
             if (err) {
                 return console.error(err.message);
             }
@@ -33,7 +33,7 @@ const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
         return console.error(err.message);
     }
     else {
-        client.query(data.toString(), [], (err, result) => {
+        db.query(data.toString(), [], (err, result) => {
             if (err) {
                 return console.error(err.message);
             }
@@ -42,4 +42,4 @@ const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
     }
 });*/
 
-module.exports = client
+module.exports = db
