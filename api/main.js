@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 require("./routes/Enemies")(app)
 
+require("./routes/Rarity")(app)
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`)
 })
