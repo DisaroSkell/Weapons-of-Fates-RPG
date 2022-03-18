@@ -22,11 +22,11 @@ create table if not exists Enemies (
     Health_MaxE integer,
     Xp_Reward integer,
     Gold_Reward integer,
-    Power integer,
     Strength integer,
+    Resistance integer,
     Weekness integer,
-    constraint FK_Enemies1 foreign key (Power) references Rarity(IDR),
-    constraint FK_Enemies2 foreign key (Strength) references TypeW(IDT),
+    constraint FK_Enemies1 foreign key (Strength) references Rarity(IDR),
+    constraint FK_Enemies2 foreign key (Resistance) references TypeW(IDT),
     constraint FK_Enemies3 foreign key (Weekness) references TypeW(IDT),
     primary key (IDE)
 );

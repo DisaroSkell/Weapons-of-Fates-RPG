@@ -2,7 +2,7 @@ insert into Rarity (NameR) values ('Common');
 
 insert into TypeW (NameTW) values ('Sword');
 
-insert into Enemies (NameE, Health_MaxE, Xp_Reward, Gold_Reward, Power, Weekness) values ('Goblin', 50, 10, 5, 1, 1);
+insert into Enemies (NameE, Health_MaxE, Xp_Reward, Gold_Reward, Strength, Weekness) values ('Goblin', 50, 10, 5, 1, 1);
 
 insert into Fate (NameF, DescF) values ('Dust', 'This is your very first weapon. I don''t think you will last long if you hang on to it for too long.');
 
