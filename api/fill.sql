@@ -10,9 +10,9 @@ insert into Weapons (NameW, DamageW, Xp_Max, Weapon_Type, Rarity) values ('Rusty
 
 insert into Outfits (NameO, Sprite) values ('Basic', './img/basic_outfit', 0);
 
-insert into Player (Username, Email, Password, Health_MaxP, Current_Health, Mana_Max, Current_Mana, Chosen_Outfit) values ('Hector', 'hect.tp@gmail.com', '1234', 70, 70, 50, 50, 1);
-
 insert into Abilities (NameA, DamageA, Mana_Cost) values ('Fire', 30, 50);
+
+insert into Player (Username, Email, Password, Health_MaxP, Current_Health, Mana_Max, Current_Mana, Chosen_Outfit) values ('Hector', 'hect.tp@gmail.com', '1234', 70, 70, 50, 50, 1);
 
 insert into Can_Use values (1, 1, 1);
 

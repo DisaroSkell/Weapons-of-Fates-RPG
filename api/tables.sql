@@ -64,6 +64,16 @@ create table if not exists Outfits (
     primary key (IDO)
 );
 
+--Abilities table
+
+create table if not exists Abilities (
+    IDA serial unique,
+    NameA varchar(20),
+    DamageA integer,
+    Mana_Cost integer,
+    primary key (IDA)
+);
+
 --Player table
 
 create table if not exists Player (
@@ -84,16 +94,6 @@ create table if not exists Player (
     constraint FK_Player2 foreign key (Chosen_Outfit) references Outfits(IDO),
     constraint FK_Player3 foreign key (Chosen_Ability1) references Abilities(IDA),
     constraint FK_Player4 foreign key (Chosen_Ability2) references Abilities(IDA)
-);
-
---Abilities table
-
-create table if not exists Abilities (
-    IDA serial unique,
-    NameA varchar(20),
-    DamageA integer,
-    Mana_Cost integer,
-    primary key (IDA)
 );
 
 --Can_Use table (link between Enemies and Abilities tables)
