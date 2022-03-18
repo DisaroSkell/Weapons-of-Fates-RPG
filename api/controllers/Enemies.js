@@ -35,7 +35,7 @@ function getAllEnemies(req, res) {
 function getEnemy(req, res) {
     const id = req.body.id
 
-    const promis = model.readEnemy(id)
+    const promise = model.readEnemy(id)
     promise.theen((values) => {
         res.status(200).send(values.rows)
     }).catch((err) => {
