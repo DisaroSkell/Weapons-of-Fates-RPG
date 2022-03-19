@@ -1,7 +1,7 @@
 const model = require('../models/WeaponsInventory')
 
 function postWeaponToInventory(req, res) {
-    const username = req.body.username
+    const username = req.params.username
     const idw = req.body.idw
 
     const promise = model.addWeaponToInventory(username,idw)

@@ -1,7 +1,7 @@
 const model = require('../models/OutfitsInventory')
 
 function postOutfitToInventory(req, res) {
-    const username = req.body.username
+    const username = req.params.username
     const ido = req.body.ido
 
     const promise = model.addOutfitToInventory(username,ido)

@@ -1,7 +1,7 @@
 const model = require('../models/AbilitiesInventory')
 
 function postAbilityToInventory(req, res) {
-    const username = req.body.username
+    const username = req.params.username
     const ida = req.body.ida
 
     const promise = model.addAbilityToInventory(username,ida)

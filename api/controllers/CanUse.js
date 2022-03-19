@@ -1,7 +1,7 @@
 const model = require('../models/CanUse')
 
 function postAbilityToEnemy(req, res) {
-    const ide = req.body.ide
+    const ide = req.params.ide
     const ida = req.body.ida
     const priority = req.body.priority
 
