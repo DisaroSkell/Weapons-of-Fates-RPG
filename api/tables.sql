@@ -134,3 +134,48 @@ create table if not exists Abilities_Inventory (
 );
 
 --FOOT table (not implemented yet)
+
+/*create table if not exists FOOT (
+    IDFOOT integer
+);*/
+
+--Constraints for all tables
+
+alter table Rarity add constraint nonemptynamer check (char_length(isnull(NameR, '')) > 0);
+
+alter table TypeW add constraint nonemptynametw check (char_length(isnull(NameTW, '')) > 0);
+
+alter table Enemies add constraint nonemptynamee check (char_length(isnull(NameE, '')) > 0);
+alter table Enemies add constraint notnullhealthe check (isnull(Health_MaxE, 0) > 0);
+alter table Enemies add constraint notnullstrength check (Strength is not null);
+
+alter table Fate add constraint nonemptynamef check (char_length(isnull(NameF, '')) > 0);
+alter table Fate add constraint nonemptydesc check (char_length(isnull(DescF, '')) > 0);
+
+alter table Weapons add constraint nonemptynamew check (char_length(isnull(NameW, '')) > 0);
+alter table Weapons add constraint notnulldamagew check (isnull(DamageW, 0) > 0);
+alter table Weapons add constraint notnullxpw check (isnull(Xp_Max, 0) > 0);
+alter table Weapons add constraint notnulltypew check (Weapon_Type is not null);
+alter table Weapons add constraint notnullrarityw check (Rarity is not null);
+
+alter table Outfits add constraint nonemptynameo check (char_length(isnull(NameO, '')) > 0);
+alter table Outfits add constraint nonemptysprite check (isnull(Sprite, 0) > 0);
+alter table Outfits add constraint notnullprice check (isnull(Price, 0) > 0);
+
+alter table Abilities add constraint nonemptynamea check (char_length(isnull(NameA, '')) > 0);
+alter table Abilities add constraint notnulldamagea check (isnull(DamageA, 0) > 0);
+alter table Abilities add constraint notnullmanacost check (isnull(Mana_Cost, 0) > 0);
+
+alter table Player add constraint nonemptynamep check (char_length(isnull(Username, '')) > 0);
+alter table Player add constraint nonemptyemail check (char_length(isnull(Email, '')) > 0);
+alter table Player add constraint nonemptypassword check (char_length(isnull(Password, '')) > 0);
+alter table Player add constraint notnullhealthp check (isnull(Health_MaxP, 0) > 0);
+alter table Player add constraint notnullmanap check (isnull(Mana_Max, 0) > 0);
+alter table Player add constraint notnullchosenweapon check (Chosen_Weapon is not null);
+alter table Player add constraint notnullchosenoutfit check (Chosen_Outfit is not null);
+alter table Player add constraint notnullchosenability1 check (Chosen_Ability1 is not null);
+alter table Player add constraint notnullchosenability2 check (Chosen_Ability2 is not null);
+
+alter table Can_Use add constraint notnulluseprio check (isnull(Use_Prio, 0) > 0);
+
+alter table Weapons_Inventory add constraint notnullfatelevel check (isnull(Fate_Level, 0) > 0);
