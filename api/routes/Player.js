@@ -6,11 +6,11 @@ module.exports = app => {
 
     router.get('/', controller.getAllPlayers)
 
-    router.get('/:id', controller.getPlayer)
+    router.get('/:username', controller.getPlayer)
     
-    router.put('/:id', controller.putPlayer)
+    router.put('/:username', controller.putPlayer)
     
-    router.delete('/:id', controller.deletePlayer)
+    router.delete('/:username', controller.deletePlayer)
 
     app.use('/players', router)
 }

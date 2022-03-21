@@ -12,5 +12,5 @@ module.exports = app => {
     
     router.delete('/:id', controller.deleteWeaponFromInventory)
 
-    app.use('/player/:username/weapons', router)
+    app.use('/players/:username/weapons', router)
 }

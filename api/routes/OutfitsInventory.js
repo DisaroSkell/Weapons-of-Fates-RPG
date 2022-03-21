@@ -10,5 +10,5 @@ module.exports = app => {
     
     router.delete('/:id', controller.deleteOutfitFromInventory)
 
-    app.use('/player/:username/outfits', router)
+    app.use('/players/:username/outfits', router)
 }
