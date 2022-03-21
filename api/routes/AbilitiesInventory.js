@@ -6,9 +6,9 @@ module.exports = app => {
 
     router.get('/', controller.getPlayerAbilityInventory)
 
-    router.get('/:id', controller.getPlayerAbility)
+    router.get('/:ida', controller.getPlayerAbility)
     
-    router.delete('/:id', controller.deleteAbilityFromInventory)
+    router.delete('/:ida', controller.deleteAbilityFromInventory)
 
     app.use('/players/:username/abilities', router)
 }

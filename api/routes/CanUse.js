@@ -6,11 +6,11 @@ module.exports = app => {
 
     router.get('/', controller.getEnemyAbilityInventory)
 
-    router.get('/:id', controller.getEnemyAbility)
+    router.get('/:ida', controller.getEnemyAbility)
 
-    router.put('/:id', controller.putEnemyAbility)
+    router.put('/:ida', controller.putEnemyAbility)
 
-    router.delete('/:id', controller.deleteAbilityFromUsage)
+    router.delete('/:ida', controller.deleteAbilityFromUsage)
 
     app.use('/enemies/:ide/abilities', router)
 }

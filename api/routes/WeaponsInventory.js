@@ -6,11 +6,11 @@ module.exports = app => {
 
     router.get('/', controller.getPlayerWeaponInventory)
 
-    router.get('/:id', controller.getPlayerWeapon)
+    router.get('/:idw', controller.getPlayerWeapon)
 
-    router.put('/:id', controller.putPlayerWeapon)
+    router.put('/:idw', controller.putPlayerWeapon)
     
-    router.delete('/:id', controller.deleteWeaponFromInventory)
+    router.delete('/:idw', controller.deleteWeaponFromInventory)
 
     app.use('/players/:username/weapons', router)
 }

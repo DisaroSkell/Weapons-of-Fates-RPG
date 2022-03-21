@@ -6,9 +6,9 @@ module.exports = app => {
 
     router.get('/', controller.getPlayerOutfitInventory)
 
-    router.get('/:id', controller.getPlayerOutfit)
+    router.get('/:ido', controller.getPlayerOutfit)
     
-    router.delete('/:id', controller.deleteOutfitFromInventory)
+    router.delete('/:ido', controller.deleteOutfitFromInventory)
 
     app.use('/players/:username/outfits', router)
 }
