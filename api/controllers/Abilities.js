@@ -1,4 +1,4 @@
-const model = require('../models/Ability')
+const model = require('../models/Abilities')
 
 function postAbility(req, res) {
     const name = req.body.name
