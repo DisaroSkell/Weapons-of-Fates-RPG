@@ -16,17 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 require("./routes/Abilities")(app)
 
-require("./routes/AbilitiesInventory")(app)
-
-require("./routes/CanUse")(app)
-
 require("./routes/Enemies")(app)
 
 require("./routes/Fate")(app)
 
 require("./routes/Outfits")(app)
-
-require("./routes/OutfitsInventory")(app)
 
 require("./routes/Player")(app)
 
@@ -35,8 +29,6 @@ require("./routes/Rarity")(app)
 require("./routes/TypeW")(app)
 
 require("./routes/Weapons")(app)
-
-require("./routes/WeaponsInventory")(app)
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`)

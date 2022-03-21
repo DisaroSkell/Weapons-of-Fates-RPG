@@ -11,6 +11,19 @@ module.exports = app => {
     router.put('/:id', controller.putEnemy)
     
     router.delete('/:id', controller.deleteEnemy)
+
+    //Can Use:
+    const controller2 = require('../controllers/CanUse')
+
+    router.post('/:ide/abilities', controller2.postAbilityToEnemy)
+
+    router.get('/:ide/abilities', controller2.getEnemyAbilityInventory)
+
+    router.get('/:ide/abilities/:ida', controller2.getEnemyAbility)
+
+    router.put('/:ide/abilities/:ida', controller2.putEnemyAbility)
+
+    router.delete('/:ide/abilities/:ida', controller2.deleteAbilityFromUsage)
     
     app.use('/enemies', router)
 }
