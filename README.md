@@ -6,4 +6,5 @@
 
 ### Not implemented yet:
     - FOOT
-    - Handle null params gaved to api
+    - Allow to give null params to api to only change needed values (for put)
+    - Image for Outfits (Now is just a string)
