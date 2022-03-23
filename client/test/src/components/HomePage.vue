@@ -2,10 +2,14 @@
     <div class="navbar">
         <div class="nav-elem">Home</div>
         <div class="nav-elem">Profile</div>
-        <div class="nav-elem">FOOT</div>
+        <router-link to="./fight" class="nav-elem">FOOT</router-link>
         <div class="nav-elem">Bestiary</div>
     </div>
 </template>
+<script>
+
+</script>
+
 <style scoped>
     .navbar {
         position: absolute;
@@ -19,10 +23,16 @@
     }
 
     .nav-elem {
+        color: black;
+        text-decoration: none;
         font-size: 2vw;
         margin: 5px 10px 5px 10px;
         display: inline;
         cursor: pointer;
         user-select: none;
+    }
+
+    .nav-elem:hover {
+        background-color: green;
     }
 </style>

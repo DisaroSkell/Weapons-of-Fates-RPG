@@ -1,14 +1,24 @@
 <template>
-    <HomePage/>
+  <HomePage/>
+  <div v-if="greg">
+    <Fight/>
+  </div>
 </template>
 
 <script>
 import HomePage from "./components/HomePage.vue"
+import Fight from "./components/Fight-component.vue"
 
 export default {
   name: "App",
   components: {
     HomePage,
+    Fight,
+  },
+  data() {
+    return {
+      greg: false,
+    }
   },
 };
 </script>
