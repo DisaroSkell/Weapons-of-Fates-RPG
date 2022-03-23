@@ -1,25 +1,27 @@
 <template>
-    <div class="enemy-info">
-        <div class="enemy-name">Dragon</div>
-        <div class="life-info">
-            <div class="life-bar-red"></div>
-            <div class="life-amount">100/100</div>
+    <div>
+        <div class="enemy-info">
+            <div class="enemy-name">Dragon</div>
+            <div class="life-info">
+                <div class="life-bar-red"></div>
+                <div class="life-amount">100/100</div>
+            </div>
         </div>
-    </div>
-    <div class="player-info">
-        <div class="player-name">Player</div>
-        <div class="life-info">
-            <div class="life-bar-green"></div>
-            <div class="life-amount">100/100</div>
+        <div class="player-info">
+            <div class="player-name">Player</div>
+            <div class="life-info">
+                <div class="life-bar-green"></div>
+                <div class="life-amount">100/100</div>
+            </div>
         </div>
+        <div class="action-menu">
+            Chose an action:
+            <div class="action">Attack</div>
+            <div class="action">Ability1</div>
+            <div class="action">Ability2</div>
+        </div>
+        <div class="dialog">Long text here</div>
     </div>
-    <div class="action-menu">
-        Chose an action:
-        <div class="action">Attack</div>
-        <div class="action">Ability1</div>
-        <div class="action">Ability2</div>
-    </div>
-    <div class="dialog">Long text here</div>
 </template>
 <style scoped>
     .enemy-info, .player-info, .action-menu, .dialog {

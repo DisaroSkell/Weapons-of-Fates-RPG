@@ -1,23 +1,25 @@
 <template>
-  <HomePage/>
-  <div v-if="greg">
-    <Fight/>
+  <div>
+    <HomePage v-if="notinfight" v-on:play="infight"/>
   </div>
 </template>
 
 <script>
 import HomePage from "./components/HomePage.vue"
-import Fight from "./components/Fight-component.vue"
 
 export default {
   name: "App",
   components: {
     HomePage,
-    Fight,
   },
   data() {
     return {
-      greg: false,
+      notinfight: true,
+    }
+  },
+  methods: {
+    infight() {
+      this.notinfight = false
     }
   },
 };

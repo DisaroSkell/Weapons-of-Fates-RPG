@@ -1,13 +1,22 @@
 <template>
-    <div class="navbar">
-        <div class="nav-elem">Home</div>
-        <div class="nav-elem">Profile</div>
-        <router-link to="./fight" class="nav-elem">FOOT</router-link>
-        <div class="nav-elem">Bestiary</div>
+    <div>
+        <div class="navbar">
+            <div class="nav-elem">Home</div>
+            <div class="nav-elem">Profile</div>
+            <router-link to="./fight" class="nav-elem" @click="play">FOOT</router-link>
+            <div class="nav-elem">Bestiary</div>
+        </div>
+        <router-view/>
     </div>
 </template>
 <script>
-
+export default {
+  methods: {
+    play() {
+        this.$emit('play')
+    }
+  },
+};
 </script>
 
 <style scoped>
