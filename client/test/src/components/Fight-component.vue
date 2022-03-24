@@ -46,7 +46,7 @@
     }
 
     .action-menu {
-        padding: 15px;
+        padding: 1%;
         width: 20%;
         bottom: 1%;
         right: 1%;
@@ -54,10 +54,11 @@
 
     .dialog {
         font-size: 30px;
-        width: 75%;
+        width: 52%;
+        height: fit-content;
         margin-left: 22%;
         bottom: 1%;
-        padding: 15px 0 15px 15px;
+        padding: 1% 0 1% 1%;
     }
 
     .enemy-name, .player-name {
