@@ -2,12 +2,12 @@
     <div>
         <div v-if="!infight">
             <div class="navbar">
-                <router-link to="./" class="nav-elem home">Home</router-link>
-                <div class="nav-elem fight" @click="fight">Fight</div>
+                <router-link to="./" class="nav-elem home clicker">Home</router-link>
+                <div class="nav-elem fight clicker" @click="fight">Fight</div>
                 <div class="nav-elem">
                     <div class="sign" v-if="!connected">
-                        <router-link to="./signin">Sign in</router-link>
-                        <router-link to="./signup">Sign up</router-link>
+                        <router-link to="./signin" class="signbutton clicker">Sign in</router-link>
+                        <router-link to="./signup" class="signbutton clicker">Sign up</router-link>
                     </div>
                     <div v-if="connected">Profile</div>
                 </div>
@@ -23,47 +23,47 @@
 import Fight from "./components/Fight-component.vue"
 
 export default {
-  name: "App",
-  components: {
-    Fight,
-  },
-  data() {
-    return {
-      infight: false,
-      connected: false,
-    }
-  },
-  methods: {
-    fight() {
-      this.infight = true
-    }
-  },
+      name: "App",
+      components: {
+        Fight,
+      },
+      data() {
+        return {
+            infight: false,
+            connected: false,
+        }
+    },
+    methods: {
+        fight() {
+            this.infight = true
+        }
+    },
 };
 </script>
 
 <style>
-body {
-    margin: 0;
-    background-color: #38325c;
-    background-image: url(assets/background.png);
-}
+    @font-face {
+        font-family: EnchantedLand;
+        src: url(assets/Enchanted_Land.otf);
+    }
 
-@font-face {
-  font-family: Centurion;
-  src: url(assets/The_Centurion.otf);
-}
+    body {
+        margin: 0;
+        background-color: #38325c;
+        background-image: url(assets/background.png);
+    }
 
-@font-face {
-  font-family: HappySchool;
-  src: url(assets/Happy_School.otf);
-}
+    #app {
+        margin: 0;
+        font-family: EnchantedLand, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-#app {
-  margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    .clicker {
+        cursor: pointer;
+        user-select: none;
+    }
 </style>
 
 <style scoped>
@@ -77,7 +77,7 @@ body {
         position: absolute;
         top: 0;
         width: 100%;
-        background-color: #504E5C;
+        background-color: #646177;
         border-bottom: solid #201f27;
         height: 10%;
         text-align: center;
@@ -94,8 +94,6 @@ body {
         font-size: 5vh;
         padding: 0 20px;
         display: inline-block;
-        cursor: pointer;
-        user-select: none;
     }
 
     .home:hover {

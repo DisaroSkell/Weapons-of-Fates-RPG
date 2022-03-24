@@ -26,7 +26,6 @@
 
 <style scoped>
     .enemy-info, .player-info, .action-menu, .dialog {
-        font-family: Centurion, sans-serif;
         font-size: 25px;
         border: solid black;
         border-radius: 15px;
@@ -54,7 +53,6 @@
     }
 
     .dialog {
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 30px;
         width: 75%;
         margin-left: 22%;
@@ -89,7 +87,6 @@
     }
 
     .life-amount {
-        font-family: HappySchool;
         font-size: 20px;
         margin-top: 5px;
         text-align: right;
