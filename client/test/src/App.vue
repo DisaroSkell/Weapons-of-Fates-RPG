@@ -13,6 +13,10 @@
                 </div>
             </div>
             <div class="navbarmargin"></div>
+            <div v-if="admin">
+                <AdminBar/>
+                <div class="adminbarmargin"></div>
+            </div>
             <router-view/>
         </div>
         <Fight v-if="infight"/>
@@ -21,16 +25,19 @@
 
 <script>
 import Fight from "./components/Fight-component.vue"
+import AdminBar from "./components/AdminBar.vue"
 
 export default {
       name: "App",
       components: {
         Fight,
+        AdminBar,
       },
       data() {
         return {
             infight: false,
             connected: false,
+            admin: true,
         }
     },
     methods: {
@@ -69,7 +76,12 @@ export default {
 <style scoped>
 
     .navbarmargin {
-        height: 10vh;
+        height: 10.5vh;
+        width: 100%;
+    }
+
+    .adminbarmargin {
+        height: 5.5vh;
         width: 100%;
     }
 
@@ -79,6 +91,7 @@ export default {
         width: 100%;
         background-color: #646177;
         border-bottom: solid #201f27;
+        border-width: .5vh;
         height: 10%;
         text-align: center;
         display: flex;
