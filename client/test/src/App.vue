@@ -16,6 +16,12 @@
             </div>
             <router-view/>
         </div>
+        <div v-if="popup" class="blackfilter">
+            <div class="popupbox">
+                <div class="exit-button clicker" @click="closepopup">x</div>
+                Test
+            </div>
+        </div>
         <Fight v-if="infight"/>
     </div>
 </template>
@@ -25,21 +31,25 @@ import Fight from "./components/Fight-component.vue"
 import AdminBar from "./components/AdminBar.vue"
 
 export default {
-      name: "App",
-      components: {
+    name: "App",
+    components: {
         Fight,
         AdminBar,
-      },
-      data() {
+    },
+    data() {
         return {
             infight: false,
             connected: false,
             admin: true,
+            popup: false,
         }
     },
     methods: {
         fight() {
             this.infight = true
+        },
+        closepopup() {
+            this.popup = false
         }
     },
 };
@@ -142,5 +152,36 @@ export default {
         font-size: 3vh;
         text-decoration: none;
         color: black;
+    }
+
+    .blackfilter {
+        position: fixed;
+        z-index: 10;
+        background-color: black;
+        top: 0;
+        opacity: 50%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .popupbox {
+        opacity: 100%;
+        background-color: #8679DB;
+        margin: 25vh 25%;
+        height: 50%;
+        width: 50%;
+        padding: 1%;
+    }
+
+    .exit-button {
+        text-align: center;
+        font-size: 30px;
+        border: solid black;
+        border-radius: 100%;
+        display: table;
+        margin: 2% 2% auto auto;
+        width: 5%;
+        height: 0;
+        background-color: brown;
     }
 </style>
