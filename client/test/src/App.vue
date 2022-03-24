@@ -5,10 +5,7 @@
                 <router-link to="./" class="nav-elem home clicker">Home</router-link>
                 <div class="fight clicker" @click="fight">Fight</div>
                 <div class="nav-elem">
-                    <div class="sign" v-if="!connected">
-                        <router-link to="./signin" class="signbutton clicker">Sign in</router-link>
-                        <router-link to="./signup" class="signbutton clicker">Sign up</router-link>
-                    </div>
+                    <router-link to="./signin" class="signbutton clicker" v-if="!connected">Sign in</router-link>
                     <div v-if="connected" class="profile clicker">Profile</div>
                 </div>
             </div>
@@ -141,12 +138,8 @@ export default {
         background-color: brown;
     }
 
-    .sign {
-        display: inline;
-        font-size: 3vh;
-    }
-
     .signbutton {
+        font-size: 3vh;
         text-decoration: none;
         color: black;
     }
