@@ -108,4 +108,9 @@ export default {
         display: inline;
         font-size: 3vh;
     }
+
+    .signbutton {
+        text-decoration: none;
+        color: black;
+    }
 </style>
