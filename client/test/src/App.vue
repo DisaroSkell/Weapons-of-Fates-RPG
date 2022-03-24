@@ -2,11 +2,18 @@
     <div>
         <div v-if="!infight">
             <div class="navbar">
-                <div class="nav-elem">Home</div>
-                <div class="nav-elem">Profile</div>
-                <div class="nav-elem" @click="fight">FOOT</div>
-                <div class="nav-elem">Bestiary</div>
+                <router-link to="./" class="nav-elem home">Home</router-link>
+                <div class="nav-elem fight" @click="fight">Fight</div>
+                <div class="nav-elem">
+                    <div class="sign" v-if="!connected">
+                        <router-link to="./signin">Sign in</router-link>
+                        <router-link to="./signup">Sign up</router-link>
+                    </div>
+                    <div v-if="connected">Profile</div>
+                </div>
             </div>
+            <div class="navbarmargin"></div>
+            <router-view/>
         </div>
         <Fight v-if="infight"/>
     </div>
@@ -23,6 +30,7 @@ export default {
   data() {
     return {
       infight: false,
+      connected: false,
     }
   },
   methods: {
@@ -59,28 +67,47 @@ body {
 </style>
 
 <style scoped>
+
+    .navbarmargin {
+        height: 10vh;
+        width: 100%;
+    }
+
     .navbar {
         position: absolute;
         top: 0;
         width: 100%;
         background-color: #504E5C;
-        padding: 10px 0 10px 0;
         border-bottom: solid #201f27;
-        height: 5%;
+        height: 10%;
         text-align: center;
+        display: flex;
+        justify-content: space-between;
     }
 
     .nav-elem {
         color: black;
         text-decoration: none;
-        font-size: 2vw;
-        margin: 5px 10px 5px 10px;
-        display: inline;
+        height: 100%;
+        width: fit-content;
+        line-height: 200%;
+        font-size: 5vh;
+        padding: 0 20px;
+        display: inline-block;
         cursor: pointer;
         user-select: none;
     }
 
-    .nav-elem:hover {
+    .home:hover {
         background-color: green;
+    }
+
+    .fight:hover {
+        background-color: red;
+    }
+
+    .sign {
+        display: inline;
+        font-size: 3vh;
     }
 </style>

@@ -23,6 +23,7 @@
         <div class="dialog">Long text here</div>
     </div>
 </template>
+
 <style scoped>
     .enemy-info, .player-info, .action-menu, .dialog {
         font-family: Centurion, sans-serif;
