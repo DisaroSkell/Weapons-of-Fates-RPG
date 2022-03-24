@@ -3,13 +3,13 @@
         <div v-if="!infight">
             <div class="navbar">
                 <router-link to="./" class="nav-elem home clicker">Home</router-link>
-                <div class="nav-elem fight clicker" @click="fight">Fight</div>
+                <div class="fight clicker" @click="fight">Fight</div>
                 <div class="nav-elem">
                     <div class="sign" v-if="!connected">
                         <router-link to="./signin" class="signbutton clicker">Sign in</router-link>
                         <router-link to="./signup" class="signbutton clicker">Sign up</router-link>
                     </div>
-                    <div v-if="connected">Profile</div>
+                    <div v-if="connected" class="profile clicker">Profile</div>
                 </div>
             </div>
             <div class="navbarmargin"></div>
@@ -113,8 +113,32 @@ export default {
         background-color: green;
     }
 
+    .fight {
+        background-color: violet;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: solid #201f27;
+        border-top: hidden;
+        border-width: .5vh;
+        height: fit-content;
+        width: fit-content;
+        font-size: 7vh;
+        padding: 0 20px;
+        display: inline-block;
+    }
+
     .fight:hover {
         background-color: red;
+    }
+
+    .profile {
+        padding: 0 20px;
+    }
+
+    .profile:hover {
+        background-color: brown;
     }
 
     .sign {
