@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="exitbutton clicker" @click="leave">Leave</div>
         <div class="enemy-info">
             <div class="enemy-name">Dragon</div>
             <div class="life-info">
@@ -16,21 +17,62 @@
         </div>
         <div class="action-menu">
             Chose an action:
-            <div class="action">Attack</div>
-            <div class="action">Ability1</div>
-            <div class="action">Ability2</div>
+            <div class="action clicker">Attack</div>
+            <div class="action clicker">Ability1</div>
+            <div class="action clicker">Ability2</div>
         </div>
         <div class="dialog">Long text here</div>
     </div>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            isEditing: true,
+        }
+    },
+
+    beforeMount() {
+        window.addEventListener("beforeunload", this.preventNav)
+    },
+
+    beforeUnmount() {
+        window.removeEventListener("beforeunload", this.preventNav);
+    },
+
+    methods: {
+        preventNav(event) {
+            if (!this.isEditing) return
+            event.preventDefault()
+            event.returnValue = ""
+        },
+        leave() {
+            this.$emit("leaving")
+        }
+    }
+}
+</script>
+
 <style scoped>
-    .enemy-info, .player-info, .action-menu, .dialog {
+    .enemy-info, .player-info, .action-menu, .dialog, .exitbutton {
         font-size: 25px;
         border: solid black;
         border-radius: 15px;
         background-color: #504E5C;
         position: absolute;
+    }
+
+    .exitbutton {
+        top: 1%;
+        left: 1%;
+        width: fit-content;
+        padding: .5%;
+        background-color: brown;
+    }
+
+    .exitbutton:hover {
+        background-color: red;
     }
 
     .enemy-info {
@@ -100,7 +142,5 @@
         border-radius: 15px;
         margin: 5px;
         text-align: center;
-        cursor: pointer;
-        user-select: none;
     }
 </style>

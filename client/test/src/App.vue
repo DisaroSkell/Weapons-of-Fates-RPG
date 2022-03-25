@@ -22,7 +22,7 @@
                 Test
             </div>
         </div>
-        <Fight v-if="infight"/>
+        <Fight v-if="infight" @leaving="leavefight"/>
     </div>
 </template>
 
@@ -50,6 +50,9 @@ export default {
         },
         closepopup() {
             this.popup = false
+        },
+        leavefight() {
+            this.infight = false
         }
     },
 };
