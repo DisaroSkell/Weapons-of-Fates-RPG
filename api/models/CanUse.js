@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../config/db')
 
 function allowAbilityToEnemy(ide, idw, priority) {
     return new Promise((resolve, reject) => {

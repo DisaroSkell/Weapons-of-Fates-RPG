@@ -1,4 +1,4 @@
-const db = require("../db")
+const db = require("../config/db")
 
 function createAbility(name, damage, mana) {
     return new Promise((resolve, reject) => {

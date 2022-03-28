@@ -1,4 +1,4 @@
-const db = require("../db")
+const db = require("../config/db")
 
 function createPlayer(username, email, password) {
     return new Promise((resolve, reject) => {

@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../config/db')
 
 function addWeaponToInventory(username, idw) {
     return new Promise((resolve, reject) => {
