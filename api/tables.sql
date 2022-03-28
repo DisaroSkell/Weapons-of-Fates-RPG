@@ -119,6 +119,7 @@ create table if not exists Player (
     Mana_Max integer,
     Current_Mana integer,
     Gold_Purse integer,
+    IsAdmin boolean,
     Chosen_Weapon integer,
     Chosen_Outfit integer,
     Chosen_Ability1 integer,
@@ -136,6 +137,7 @@ create table if not exists Player (
     constraint nonemptypassword check (char_length(coalesce(Password, '')) > 0),
     constraint notnullhealthp check (coalesce(Health_MaxP, 0) > 0),
     constraint notnullmanap check (coalesce(Mana_Max, 0) > 0),
+    constraint notnulladmin check (IsAdmin is not null),
     constraint notnullchosenweapon check (Chosen_Weapon is not null),
     constraint notnullchosenoutfit check (Chosen_Outfit is not null)
 );

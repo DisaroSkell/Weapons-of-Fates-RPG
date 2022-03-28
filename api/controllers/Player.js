@@ -51,12 +51,13 @@ function putPlayer(req, res) {
     const mana_max = req.body.mana_max
     const current_mana = req.body.current_mana
     const gold = req.body.gold
+    const admin = req.body.admin
     const weapon = req.body.weapon
     const outfit = req.body.outfit
     const ability1 = req.body.ability1
     const ability2 = req.body.ability2
 
-    const promise = model.updatePlayer(username, email, password, health_max, current_health, mana_max, current_mana, gold, weapon, outfit, ability1, ability2)
+    const promise = model.updatePlayer(username, email, password, health_max, current_health, mana_max, current_mana, gold, admin, weapon, outfit, ability1, ability2)
     promise.then((values) => {
         res.status(204).send(values)
     }).catch((err) => {
