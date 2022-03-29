@@ -28,6 +28,20 @@ function readPlayer(username) {
     })
 }
 
+function readPlayerByEmail(email) {
+    return new Promise((resolve, reject) => {
+        const values = [email]
+        const sql = `select * from player where email = $1;`
+        db.query(sql, values, (err,result) => {
+            if (err) {
+                return console.error(err.message)
+            }
+
+            resolve (result)
+        })
+    })
+}
+
 function readAllPlayers() {
     return new Promise((resolve, reject) => {
         const values = []
@@ -74,6 +88,7 @@ function removePlayer(username) {
 module.exports = {
     createPlayer,
     readPlayer,
+    readPlayerByEmail,
     readAllPlayers,
     updatePlayer,
     removePlayer
