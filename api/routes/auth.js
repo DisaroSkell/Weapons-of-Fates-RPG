@@ -12,5 +12,5 @@ module.exports = function(app) {
 
     app.post("/auth/signup", [verifySignUp.checkDuplicateUsernameOrEmail], controller.signUp)
 
-    app.post("auth/signin", controller.signIn)
+    app.post("/auth/signin", controller.signIn)
 }
