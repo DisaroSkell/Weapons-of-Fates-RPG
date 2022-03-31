@@ -91,8 +91,8 @@ export default({
                 return
             }
             this.loading = true
-            this.$store.dispatch("auth/register", this.user).then( (data) => {
-                this.$router.push("/profile")
+            this.$store.dispatch("auth/register", this.user).then( () => {
+                this.$router.push("/")
             },
             (error) => {
                 this.loading = false

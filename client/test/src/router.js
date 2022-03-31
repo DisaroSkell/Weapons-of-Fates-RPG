@@ -15,6 +15,11 @@ const routes =  [
     name: "signup",
     component: () => import("./components/SignUp")
   },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("./components/Profile-component")
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),

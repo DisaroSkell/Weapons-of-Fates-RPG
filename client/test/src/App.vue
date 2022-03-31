@@ -5,8 +5,8 @@
                 <router-link to="./" class="nav-elem home clicker">Home</router-link>
                 <div class="fight clicker" @click="fight">Fight</div>
                 <div class="nav-elem">
-                    <router-link to="./signin" class="signbutton clicker" v-if="!connected">Sign in</router-link>
-                    <div v-if="connected" class="profile clicker">Profile</div>
+                    <router-link to="./signin" v-if="!connected" class="signbutton clicker">Sign in</router-link>
+                    <router-link to="./profile" v-if="connected" class="profile clicker nav-elem">Profile</router-link>
                 </div>
             </div>
             <div class="navbarmargin"></div>
