@@ -30,7 +30,7 @@ isAdmin = (req, res, next) => {
             })
         }
 
-        if (data.rows[0].isAdmin) {
+        if (data.rows[0].isadmin) {
             next()
             return
         }
