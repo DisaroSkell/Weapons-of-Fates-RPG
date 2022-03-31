@@ -42,7 +42,7 @@ signin = (req, res) => {
                 accessToken: token
             })
         } else {
-            userModel.readPlayerByEmail(req.body.email).then(data2 => {
+            userModel.readPlayerByEmail(req.body.username).then(data2 => { // Is entered as username in body
                 if (data2) {
                     const passwordIsValid = bcrypt.compareSync(
                         req.body.password,
