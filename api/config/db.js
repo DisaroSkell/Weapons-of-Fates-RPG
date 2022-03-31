@@ -14,7 +14,7 @@ db.connect(function(err) {
   console.log("Connected to database " + db.database + "!");
 })
 
-const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
+const sql_create = fs.readFile(__dirname + "/../sql/tables.sql", function (err, data) {
     if (err) {
         return console.error(err.message);
     }
@@ -28,7 +28,7 @@ const sql_create = fs.readFile(__dirname + "/tables.sql", function (err, data) {
     }
 });
 
-/*const sql_fill = fs.readFile(__dirname + "/fill.sql", function (err, data) {
+/*const sql_fill = fs.readFile(__dirname + "/../sql/fill.sql", function (err, data) {
     if (err) {
         return console.error(err.message);
     }
