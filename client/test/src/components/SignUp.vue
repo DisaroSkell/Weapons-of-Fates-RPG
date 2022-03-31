@@ -73,6 +73,11 @@ export default({
             || (conformEmail.test(this.email))
         }
     },
+    created() {
+        if (this.loggedIn) {
+            this.$router.push("/profile")
+        }
+    },
     methods: {
         handleRegister() {
             this.message = ""
@@ -87,9 +92,7 @@ export default({
             }
             this.loading = true
             this.$store.dispatch("auth/register", this.user).then( (data) => {
-                this.message = data.message
-                this.successful = true
-                this.loading = false
+                this.$router.push("/profile")
             },
             (error) => {
                 this.loading = false
