@@ -24,7 +24,7 @@ verifyToken = (req, res, next) => {
 
 isAdmin = (req, res, next) => {
     userModel.readPlayer(req.username).then(data => {
-        if (!data) {
+        if (!data.rows.length) {
             res.status(404).send({
                 message: "User not found."
             })

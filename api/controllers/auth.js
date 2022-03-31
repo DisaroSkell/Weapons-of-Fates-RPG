@@ -19,7 +19,7 @@ signup = (req, res) => {
 
 signin = (req, res) => {
     userModel.readPlayer(req.body.username).then(data1 => {
-        if (data1) {
+        if (data1.rows.length) {
             const passwordIsValid = bcrypt.compareSync(
                 req.body.password,
                 data1.rows[0].password
@@ -43,7 +43,7 @@ signin = (req, res) => {
             })
         } else {
             userModel.readPlayerByEmail(req.body.username).then(data2 => { // Is entered as username in body
-                if (data2) {
+                if (data2.rows.length) {
                     const passwordIsValid = bcrypt.compareSync(
                         req.body.password,
                         data2.rows[0].password
