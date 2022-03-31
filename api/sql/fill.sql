@@ -12,7 +12,7 @@ insert into Outfits (NameO, Sprite, Price) values ('Basic', './img/basic_outfit'
 
 insert into Abilities (NameA, DamageA, Mana_Cost) values ('Fire', 30, 50);
 
-insert into Player (Username, Email, Password, Health_MaxP, Current_Health, Mana_Max, Current_Mana, IsAdmin, Chosen_Weapon, Chosen_Outfit) values ('Hector', 'hect.tp@gmail.com', '1234', 70, 70, 50, 50, false, 1, 1);
+insert into Player (Username, Email, Password, Health_MaxP, Current_Health, Mana_Max, Current_Mana, IsAdmin, Chosen_Weapon, Chosen_Outfit) values ('Hector', 'hect.tp@gmail.com', '$2a$08$OOYi/2N2pk312HJlWuC/4uwfArF0EFT3.lqOBjPN0EyPaf0fvZP2m', 70, 70, 50, 50, false, 1, 1);
 
 insert into Can_Use values (1, 1, 1);
 
