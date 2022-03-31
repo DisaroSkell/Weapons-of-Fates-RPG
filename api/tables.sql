@@ -137,9 +137,7 @@ create table if not exists Player (
     constraint nonemptypassword check (char_length(coalesce(Password, '')) > 0),
     constraint notnullhealthp check (coalesce(Health_MaxP, 0) > 0),
     constraint notnullmanap check (coalesce(Mana_Max, 0) > 0),
-    constraint notnulladmin check (IsAdmin is not null),
-    constraint notnullchosenweapon check (Chosen_Weapon is not null),
-    constraint notnullchosenoutfit check (Chosen_Outfit is not null)
+    constraint notnulladmin check (IsAdmin is not null)
 );
 
 --Can_Use table (link between Enemies and Abilities tables)
