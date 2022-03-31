@@ -37,8 +37,8 @@ signin = (req, res) => {
             })
 
             res.status(200).send({
-                username: data1.username,
-                email: data1.email,
+                username: data1.rows[0].username,
+                email: data1.rows[0].email,
                 accessToken: token
             })
         } else {
@@ -61,8 +61,8 @@ signin = (req, res) => {
                     })
         
                     res.status(200).send({
-                        username: data2.username,
-                        email: data2.email,
+                        username: data2.rows[0].username,
+                        email: data2.rows[0].email,
                         accessToken: token
                     })
                 } else {
