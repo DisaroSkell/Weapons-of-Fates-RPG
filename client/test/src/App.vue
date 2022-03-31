@@ -29,6 +29,7 @@
 <script>
 import Fight from "./components/Fight-component.vue"
 import AdminBar from "./components/AdminBar.vue"
+import UserService from "./services/user"
 
 export default {
     name: "App",
@@ -38,8 +39,8 @@ export default {
     },
     data() {
         return {
+            admin: false,
             infight: false,
-            admin: true,
             popup: false,
         }
     },
@@ -47,6 +48,25 @@ export default {
         connected() {
             return this.$store.state.auth.status.loggedIn
         },
+        currentUser() {
+            return this.$store.state.auth.user
+        }
+    },
+    created() {
+        UserService.getAdminBoard().then( () => {
+            this.admin = true
+        }, () => {
+            this.admin = false
+        })
+    },
+    watch: {
+        currentUser() {
+            UserService.getAdminBoard().then( () => {
+                this.admin = true
+            }, () => {
+                this.admin = false
+            })
+        }
     },
     methods: {
         fight() {
