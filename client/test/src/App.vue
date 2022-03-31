@@ -39,10 +39,14 @@ export default {
     data() {
         return {
             infight: false,
-            connected: false,
             admin: true,
             popup: false,
         }
+    },
+    computed: {
+        connected() {
+            return this.$store.state.auth.status.loggedIn
+        },
     },
     methods: {
         fight() {
@@ -80,6 +84,10 @@ export default {
     .clicker {
         cursor: pointer;
         user-select: none;
+    }
+
+    .clicker:disabled {
+        cursor: auto;
     }
 </style>
 
