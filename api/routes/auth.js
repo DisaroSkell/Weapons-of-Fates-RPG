@@ -10,7 +10,7 @@ module.exports = function(app) {
         next()
     })
 
-    app.post("/auth/signup", [verifySignUp.checkDuplicateUsernameOrEmail], controller.signUp)
+    app.post("/auth/signup", [verifySignUp.checkDuplicateUsernameOrEmail], controller.signup)
 
-    app.post("/auth/signin", controller.signIn)
+    app.post("/auth/signin", controller.signin)
 }
