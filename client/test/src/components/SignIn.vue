@@ -56,7 +56,11 @@ export default {
             },
             (error) => {
                 this.loading = false
-                this.message = error.response.data.message
+                try {
+                    this.message = error.response.data.message
+                } catch (err) {
+                    this.message = error.message
+                }
             })
         },
     },

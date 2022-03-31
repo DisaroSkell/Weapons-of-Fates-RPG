@@ -87,7 +87,7 @@ export default {
     }
 
     .clicker:disabled {
-        cursor: auto;
+        cursor: not-allowed;
     }
 </style>
 
