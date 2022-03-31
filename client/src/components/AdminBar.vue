@@ -1,13 +1,15 @@
 <template>
-    <div class="adminbar">
-        <div class="adminbar-elem clicker">Abilities</div>
-        <div class="adminbar-elem clicker">Enemies</div>
-        <div class="adminbar-elem clicker">Fates</div>
-        <div class="adminbar-elem clicker">Outfits</div>
-        <div class="adminbar-elem clicker">Players</div>
-        <div class="adminbar-elem clicker">Rarities</div>
-        <div class="adminbar-elem clicker">Weapons types</div>
-        <div class="adminbar-elem clicker">Weapons</div>
+    <div>
+        <div class="adminbar">
+            <div class="adminbar-elem clicker">Abilities</div>
+            <router-link to="./enemies" class="adminbar-elem clicker">Enemies</router-link>
+            <div class="adminbar-elem clicker">Fates</div>
+            <div class="adminbar-elem clicker">Outfits</div>
+            <div class="adminbar-elem clicker">Players</div>
+            <div class="adminbar-elem clicker">Rarities</div>
+            <div class="adminbar-elem clicker">Weapons types</div>
+            <div class="adminbar-elem clicker">Weapons</div>
+        </div>
     </div>
 </template>
 

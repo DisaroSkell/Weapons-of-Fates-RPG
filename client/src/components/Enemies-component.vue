@@ -1,5 +1,12 @@
-app.component('enemies-list', {
-    props: {},
+<template>
+    <div class="enemies-list">
+        {{ enemiesTab }}
+    </div>
+</template>
+<script>
+import axios from 'axios'
+
+export default {
     data() {
         return {
             enemiesTab: []
@@ -24,19 +31,16 @@ app.component('enemies-list', {
     created() {
         this.fetchData()
     },
-    template:
-    /*html*/
-    `
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <p>{{ this.enemiesTab }}</p>
-    </div>
-    `
-})
+}
+</script>
+<style scoped>
+    .enemies-list {
+        background-color: #8679DB;
+        border: solid black;
+        border-radius: 15px;
+        width: 40%;
+        margin: 1% 30%;
+        padding: 1%;
+        font-size: 3vh;
+    }
+</style>

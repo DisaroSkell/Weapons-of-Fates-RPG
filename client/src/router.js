@@ -19,6 +19,11 @@ const routes =  [
     path: "/profile",
     name: "profile",
     component: () => import("./components/Profile-component")
+  },
+  {
+    path: "/enemies",
+    name: "enemies",
+    component: () => import("./components/Enemies-component")
   }
 ];
 const router = createRouter({
