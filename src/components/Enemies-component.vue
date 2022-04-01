@@ -46,7 +46,7 @@ export default {
             try {
                 axios({
                     method: 'get',
-                    url: 'http://localhost:6942/enemies',
+                    url: 'https://weaponsoffates-api/enemies',
                     reponseType: 'stream'
                 }).then((res) => {
                     this.enemiesTab = res.data

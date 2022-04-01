@@ -42,7 +42,7 @@ export default {
         try {
             axios({
                 method: 'get',
-                url: 'http://localhost:6942/enemies',
+                url: 'https://weaponsoffates-api/enemies',
                 reponseType: 'stream'
             }).then( (res) => {
                 const totalEnemies = res.data.length
@@ -52,7 +52,7 @@ export default {
             })
             axios({
                 method: 'get',
-                url: 'http://localhost:6942/Players/' + this.currentUser.username,
+                url: 'https://weaponsoffates-api/Players/' + this.currentUser.username,
                 reponseType: 'stream'
             }).then( (res) => {
                 this.player = res.data[0]

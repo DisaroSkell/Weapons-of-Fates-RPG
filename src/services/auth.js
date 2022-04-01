@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL = 'http://localhost:6942/auth/'
+const API_URL = 'https://weaponsoffates-api/auth/'
 
 class AuthService {
     login(user) {

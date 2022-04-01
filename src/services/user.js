@@ -1,6 +1,6 @@
 import axios from 'axios'
 import authHeader from './auth-header'
-const API_URL = 'http://localhost:6942/test/'
+const API_URL = 'https://weaponsoffates-api/test/'
 
 class UserService {
     getPublicContent() {

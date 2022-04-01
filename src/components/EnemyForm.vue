@@ -100,7 +100,7 @@ export default({
         try {
             axios({
                 method: 'get',
-                url: 'http://localhost:6942/rarities',
+                url: 'https://weaponsoffates-api/rarities',
                 reponseType: 'stream'
             }).then((res) => {
                 this.rarities = res.data
@@ -108,7 +108,7 @@ export default({
 
             axios({
                 method: 'get',
-                url: 'http://localhost:6942/typesw',
+                url: 'https://weaponsoffates-api/typesw',
                 reponseType: 'stream'
             }).then((res) => {
                 this.weapontypes = res.data
@@ -132,7 +132,7 @@ export default({
 
             axios({
                 method: 'post',
-                url: 'http://localhost:6942/enemies',
+                url: 'https://weaponsoffates-api/enemies',
                 data: this.enemy
             }).then( () => {
                 this.$router.push("/enemies")
