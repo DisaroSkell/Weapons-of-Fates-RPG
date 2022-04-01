@@ -1,13 +1,26 @@
 <template>
     <div class="enemies-list">
-        {{ enemiesTab }}
+        <Enemy v-for="enemy in enemiesTab"
+        :key="enemy.ide"
+        :name="enemy.namee"
+        :health="enemy.health_maxe"
+        :XP="enemy.xp_reward"
+        :Gold="enemy.gold_reward"
+        :Strength="enemy.strength"
+        :Resistance="enemy.resistance"
+        :Weekness="enemy.weekness"/>
     </div>
 </template>
 <script>
+import Enemy from "./Enemy-component.vue"
 import UserService from "../services/user"
 import axios from 'axios'
 
 export default {
+    name: "Enemies-component",
+    components: {
+        Enemy
+    },
     data() {
         return {
             enemiesTab: []
