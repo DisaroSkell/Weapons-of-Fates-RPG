@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="exitbutton clicker" @click="leave">Leave</div>
+        <router-link to="/" class="exitbutton clicker">Leave</router-link>
         <div class="enemy-info">
             <div class="enemy-name">Dragon</div>
             <div class="life-info">
@@ -47,9 +47,6 @@ export default {
             event.preventDefault()
             event.returnValue = ""
         },
-        leave() {
-            this.$emit("leaving")
-        }
     }
 }
 </script>
@@ -69,6 +66,8 @@ export default {
         width: fit-content;
         padding: .5%;
         background-color: brown;
+        text-decoration: none;
+        color: black;
     }
 
     .exitbutton:hover {

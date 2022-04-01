@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div v-if="!infight">
+        <div v-if="currentURL != '/fight'">
             <div class="navbar">
-                <router-link to="./" class="nav-elem home clicker">Home</router-link>
-                <div class="fight clicker" @click="fight">Fight</div>
+                <router-link to="/" class="nav-elem home clicker">Home</router-link>
+                <router-link to="/fight" class="fight clicker">Fight</router-link>
                 <div class="nav-elem">
-                    <router-link to="./signin" v-if="!connected" class="signbutton clicker">Sign in</router-link>
-                    <router-link to="./profile" v-if="connected" class="profile clicker nav-elem">Profile</router-link>
+                    <router-link to="/signin" v-if="!connected" class="signbutton clicker">Sign in</router-link>
+                    <router-link to="/profile" v-if="connected" class="profile clicker nav-elem">Profile</router-link>
                 </div>
             </div>
             <div class="navbarmargin"></div>
@@ -14,27 +14,24 @@
                 <AdminBar/>
                 <div class="adminbarmargin"></div>
             </div>
-            <router-view/>
         </div>
+        <router-view/>
         <div v-if="popup" class="blackfilter">
             <div class="popupbox">
                 <div class="exit-button clicker" @click="closepopup">x</div>
                 Test
             </div>
         </div>
-        <Fight v-if="infight" @leaving="leavefight"/>
     </div>
 </template>
 
 <script>
-import Fight from "./components/Fight-component.vue"
 import AdminBar from "./components/AdminBar.vue"
 import UserService from "./services/user"
 
 export default {
     name: "App",
     components: {
-        Fight,
         AdminBar,
     },
     data() {
@@ -50,7 +47,10 @@ export default {
         },
         currentUser() {
             return this.$store.state.auth.user
-        }
+        },
+        currentURL() {
+            return this.$router.currentRoute.value.fullPath
+        },
     },
     created() {
         UserService.getAdminBoard().then( () => {
@@ -69,15 +69,9 @@ export default {
         }
     },
     methods: {
-        fight() {
-            this.infight = true
-        },
         closepopup() {
             this.popup = false
         },
-        leavefight() {
-            this.infight = false
-        }
     },
 };
 </script>
@@ -163,6 +157,8 @@ export default {
         height: fit-content;
         width: fit-content;
         font-size: 7vh;
+        text-decoration: none;
+        color: black;
         padding: 0 20px;
         display: inline-block;
     }

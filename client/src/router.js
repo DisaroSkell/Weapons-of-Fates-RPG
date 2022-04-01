@@ -18,6 +18,11 @@ const routes =  [
     component: () => import("./components/SignUp")
   },
   {
+    path: "/fight",
+    name: "fight",
+    component: () => import("./components/Fight-component")
+  },
+  {
     path: "/profile",
     name: "profile",
     component: () => import("./components/Profile-component")
@@ -36,7 +41,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const publicPages = ['/signin', '/signup', '/'];
-  const userPages = ['/profile'];
+  const userPages = ['/profile', '/fight'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
   const adminRequired = !userPages.includes(to.path);
@@ -48,7 +53,6 @@ router.beforeEach((to, from, next) => {
       if (!loggedIn) {
         next('/signin')
       } else {
-        console.log(isAdmin);
         if (adminRequired && !isAdmin) {
           next('/')
         } else {
@@ -64,7 +68,6 @@ router.beforeEach((to, from, next) => {
       if (!loggedIn) {
         next('/signin')
       } else {
-        console.log(isAdmin);
         if (adminRequired && !isAdmin) {
           next('/')
         } else {
