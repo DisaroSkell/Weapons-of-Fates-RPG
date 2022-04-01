@@ -1,14 +1,15 @@
 <template>
     <div class="enemies-list">
+        <div class="addbutton clicker">Add one</div>
         <Enemy v-for="enemy in enemiesTab"
         :key="enemy.ide"
         :name="enemy.namee"
         :health="enemy.health_maxe"
         :XP="enemy.xp_reward"
         :Gold="enemy.gold_reward"
-        :Strength="enemy.strength"
-        :Resistance="enemy.resistance"
-        :Weekness="enemy.weekness"/>
+        :StrengthFK="enemy.strength"
+        :ResistanceFK="enemy.resistance"
+        :WeeknessFK="enemy.weekness"/>
     </div>
 </template>
 <script>
@@ -43,12 +44,11 @@ export default {
     methods: {
         fetchData() {
             try {
-                const request = axios({
+                axios({
                     method: 'get',
                     url: 'http://localhost:6942/enemies',
                     reponseType: 'stream'
-                })
-                request.then((res) => {
+                }).then((res) => {
                     this.enemiesTab = res.data
                 })
             } catch (err) {
@@ -59,13 +59,17 @@ export default {
 }
 </script>
 <style scoped>
-    .enemies-list {
-        background-color: #8679DB;
+    .addbutton {
+        margin: 1% auto auto 1%;
+        width: fit-content;
+        background-color: green;
+        padding: .3%;
         border: solid black;
         border-radius: 15px;
-        width: 40%;
-        margin: 1% 30%;
-        padding: 1%;
         font-size: 3vh;
+    }
+
+    .addbutton:hover {
+        background-color: lightgreen;
     }
 </style>
