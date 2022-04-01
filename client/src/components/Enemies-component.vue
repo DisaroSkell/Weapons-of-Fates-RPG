@@ -4,12 +4,27 @@
     </div>
 </template>
 <script>
+import UserService from "../services/user"
 import axios from 'axios'
 
 export default {
     data() {
         return {
             enemiesTab: []
+        }
+    },
+    computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn
+        },
+    },
+    created() {
+        if (this.loggedIn) {
+            UserService.getAdminBoard().then( () => {
+                this.fetchData()
+            }, () => {
+                this.$router.push("/")
+            })
         }
     },
     methods: {
@@ -27,9 +42,6 @@ export default {
                 console.error(err.message)
             }
         }
-    },
-    created() {
-        this.fetchData()
     },
 }
 </script>

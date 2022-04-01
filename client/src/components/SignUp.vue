@@ -93,6 +93,7 @@ export default({
             this.loading = true
             this.$store.dispatch("auth/register", this.user).then( () => {
                 this.$router.push("/")
+                this.message = "Redirect failed, please go to home page"
             },
             (error) => {
                 this.loading = false
