@@ -2,35 +2,70 @@
     <div>
         <router-link to="/" class="exitbutton clicker">Leave</router-link>
         <div class="enemy-info">
-            <div class="enemy-name">Dragon</div>
+            <div class="enemy-name">{{ enemy.namee }}</div>
             <div class="life-info">
                 <div class="life-bar-red"></div>
-                <div class="life-amount">100/100</div>
+                <div class="life-amount">{{ current_healthE }}/{{ enemy.health_maxe }}</div>
             </div>
         </div>
         <div class="player-info">
-            <div class="player-name">Player</div>
+            <div class="player-name">{{ player.username }}</div>
             <div class="life-info">
                 <div class="life-bar-green"></div>
-                <div class="life-amount">100/100</div>
+                <div class="life-amount"> {{ player.current_health }}/{{ player.health_maxp }}</div>
             </div>
         </div>
         <div class="action-menu">
             Chose an action:
             <div class="action clicker">Attack</div>
-            <div class="action clicker">Ability1</div>
-            <div class="action clicker">Ability2</div>
+            <div class="action clicker" v-if="player.chosen_ability1">{{ player.chosen_ability1 }}</div>
+            <div class="action clicker" v-if="player.chosen_ability2">{{ player.chosen_ability2 }}</div>
         </div>
         <div class="dialog">Long text here</div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {
             isEditing: true,
+            enemy: null,
+            current_healthE: null,
+            player: null,
         }
+    },
+
+    created() {
+        try {
+            axios({
+                method: 'get',
+                url: 'http://localhost:6942/enemies',
+                reponseType: 'stream'
+            }).then( (res) => {
+                const totalEnemies = res.data.length
+
+                this.enemy = res.data[this.getRandomInt(totalEnemies)-1]
+                this.current_healthE = this.enemy.health_maxe
+            })
+            axios({
+                method: 'get',
+                url: 'http://localhost:6942/Players/' + this.currentUser.username,
+                reponseType: 'stream'
+            }).then( (res) => {
+                this.player = res.data[0]
+            })
+        } catch (err) {
+            console.error(err.message)
+        }
+    },
+
+    computed: {
+        currentUser() {
+            return this.$store.state.auth.user
+        },
     },
 
     beforeMount() {
@@ -47,6 +82,12 @@ export default {
             event.preventDefault()
             event.returnValue = ""
         },
+        getRandomInt(max) { // Gives random int between 1 & max
+            if (max <= 0) {
+                return 0
+            }
+            return Math.floor(Math.random() * max) + 1
+        }
     }
 }
 </script>
