@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL = 'https://weaponsoffates-api/auth/'
+const API_URL = 'https://weaponsoffates-api.herokuapp.com/auth/'
 
 class AuthService {
     login(user) {

@@ -68,7 +68,7 @@ export default {
             if (this.StrengthFK) {
                 axios({
                     method: 'get',
-                    url: 'https://weaponsoffates-api/rarities/' + this.StrengthFK.toString(),
+                    url: 'https://weaponsoffates-api.herokuapp.com/rarities/' + this.StrengthFK.toString(),
                     reponseType: 'stream'
                 }).then((res) => {
                     this.Strength = res.data[0]
@@ -78,7 +78,7 @@ export default {
             if (this.ResistanceFK) {
                 axios({
                     method: 'get',
-                    url: 'https://weaponsoffates-api/typesw/' + this.ResistanceFK.toString(),
+                    url: 'https://weaponsoffates-api.herokuapp.com/typesw/' + this.ResistanceFK.toString(),
                     reponseType: 'stream'
                 }).then((res) => {
                     this.Resistance = res.data[0]
@@ -88,7 +88,7 @@ export default {
             if (this.WeeknessFK) {
                 axios({
                     method: 'get',
-                    url: 'https://weaponsoffates-api/typesw/' + this.WeeknessFK.toString(),
+                    url: 'https://weaponsoffates-api.herokuapp.com/typesw/' + this.WeeknessFK.toString(),
                     reponseType: 'stream'
                 }).then((res) => {
                     this.Weekness = res.data[0]

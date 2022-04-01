@@ -46,7 +46,7 @@ export default {
             try {
                 axios({
                     method: 'get',
-                    url: 'https://weaponsoffates-api/enemies',
+                    url: 'https://weaponsoffates-api.herokuapp.com/enemies',
                     reponseType: 'stream'
                 }).then((res) => {
                     this.enemiesTab = res.data

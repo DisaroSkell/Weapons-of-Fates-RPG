@@ -1,6 +1,6 @@
 import axios from 'axios'
 import authHeader from './auth-header'
-const API_URL = 'https://weaponsoffates-api/test/'
+const API_URL = 'https://weaponsoffates-api.herokuapp.com/test/'
 
 class UserService {
     getPublicContent() {
