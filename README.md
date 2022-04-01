@@ -9,3 +9,4 @@
     - Allow to give null params to api to only change needed values (for put)
     - Image for Outfits (Now is just a string)
     - Responsive (tests with the phone directly)
+    - So much more things (you have no idea)
