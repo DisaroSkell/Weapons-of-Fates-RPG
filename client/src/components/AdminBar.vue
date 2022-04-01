@@ -2,7 +2,7 @@
     <div>
         <div class="adminbar">
             <div class="adminbar-elem clicker">Abilities</div>
-            <router-link to="./enemies" class="adminbar-elem clicker">Enemies</router-link>
+            <router-link to="/enemies" class="adminbar-elem clicker">Enemies</router-link>
             <div class="adminbar-elem clicker">Fates</div>
             <div class="adminbar-elem clicker">Outfits</div>
             <div class="adminbar-elem clicker">Players</div>
