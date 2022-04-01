@@ -1,6 +1,6 @@
 <template>
     <div class="enemies-list">
-        <div class="addbutton clicker">Add one</div>
+        <router-link to="/enemies/create" class="addbutton clicker">Add one</router-link>
         <Enemy v-for="enemy in enemiesTab"
         :key="enemy.ide"
         :name="enemy.namee"
@@ -67,6 +67,9 @@ export default {
         border: solid black;
         border-radius: 15px;
         font-size: 3vh;
+        text-decoration: none;
+        color: black;
+        display: flex;
     }
 
     .addbutton:hover {

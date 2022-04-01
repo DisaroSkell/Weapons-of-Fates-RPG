@@ -31,6 +31,11 @@ const routes =  [
     path: "/enemies",
     name: "enemies",
     component: () => import("./components/Enemies-component")
+  },
+  {
+    path: "/enemies/create",
+    name: "enemy-creation",
+    component: () => import("./components/EnemyForm")
   }
 ];
 
