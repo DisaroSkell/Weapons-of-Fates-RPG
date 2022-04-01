@@ -44,35 +44,37 @@ router.beforeEach((to, from, next) => {
 
   UserService.getAdminBoard().then( () => {
     isAdmin = true
+    if (authRequired) {
+      if (!loggedIn) {
+        next('/signin')
+      } else {
+        console.log(isAdmin);
+        if (adminRequired && !isAdmin) {
+          next('/')
+        } else {
+          next()
+        }
+      }
+    } else {
+      next()
+    }
   }, () => {
     isAdmin = false
-  })
-  // trying to access a restricted page + not logged in
-  // redirect to login page
-
-  if (authRequired) {
-    if (!loggedIn) {
-      next('/signin')
-    } else {
-      if (adminRequired && !isAdmin) {
-        next('/')
+    if (authRequired) {
+      if (!loggedIn) {
+        next('/signin')
       } else {
-        next()
+        console.log(isAdmin);
+        if (adminRequired && !isAdmin) {
+          next('/')
+        } else {
+          next()
+        }
       }
-    }
-  } else {
-    next()
-  }
-
-  if (authRequired && !loggedIn) {
-    next('/signin');
-  } else {
-    if (adminRequired && !isAdmin) {
-      next('/')
     } else {
-      next();
+      next()
     }
-  }
+  })
 });
 
 export default router;
