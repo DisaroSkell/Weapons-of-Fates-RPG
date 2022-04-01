@@ -83,6 +83,7 @@ export default {
     }
 
     body {
+        word-spacing: .5vh;
         margin: 0;
         background-color: #38325c;
         background-image: url(assets/background.png);
